@@ -1,0 +1,442 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
+    <title>Image Counter ADC</title>
+
+    <!--
+           Static style
+    -->
+    <link rel="stylesheet" href="../resources/static/styles.css"/>
+
+    <!--
+               First ADC instance
+               Dynamic style generated
+    -->
+    <style>
+        #adc_1 {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        #adc_1 .responseItem input[type="number"],
+        #adc_1 .responseItem input[type="text"] {
+            /*visibility: hidden;*/
+        }
+
+        #adc_1 .exclusiveItem input[type="number"],
+        #adc_1 .exclusiveItemSelected input[type="number"],
+        #adc_1 .exclusiveItem input[type="text"],
+        #adc_1 .exclusiveItemSelected input[type="text"]{
+            display: none;
+        }
+
+        #adc_1 .responseItem,
+        #adc_1 .counter,
+        #adc_1 .exclusiveItemWrapper {
+            box-shadow: 1px 1px 2px 0 #999;
+        }
+
+        #adc_1 .responseItem {
+            *max-width: 120px; /* IE7 and below */
+            background-color: #e8e8e8;
+            border: 1px solid #444444;
+            margin: 3px;
+        }
+
+        #adc_1 .responseItem,
+        #adc_1 .exclusiveItem,
+        #adc_1 .exclusiveItemSelected,
+        #adc_1 .exclusiveItemWrapper {
+            border-radius: 2px;
+        }
+
+        #adc_1 .imgWrapper {
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+
+        #adc_1 label img,
+        #adc_1 .responseText {
+            max-width: 120px;
+        }
+
+        #adc_1 .responseText {
+            /*display:none;*/
+            /* TO DO */
+            color: #444;
+            font-size: 16px;
+            padding: 0;
+        }
+
+        #adc_1 .counter span {
+            color: #ffffff;
+            font-size: 16px;
+            background-color: #fcaa38;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(252, 170, 56)), to(rgb(227, 100, 0)));
+            background-image: -webkit-linear-gradient(top, rgb(252, 170, 56), rgb(227, 100, 0));
+            background-image: -moz-linear-gradient(top, rgb(252, 170, 56), rgb(227, 100, 0));
+            background-image: -o-linear-gradient(top, rgb(252, 170, 56), rgb(227, 100, 0));
+            background-image: -ms-linear-gradient(top, rgb(252, 170, 56), rgb(227, 100, 0));
+            background-image: linear-gradient(top, rgb(252, 170, 56), rgb(227, 100, 0));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#fcaa38', EndColorStr='#e36400');
+            border: 1px solid #e36400;
+        }
+
+        #adc_1 .imgZoom {
+            /*display: none;*/ /* TO DO */
+            background: url(../resources/static/magnifyingGlass.png) center center no-repeat;
+        }
+
+        #adc_1 .Minus,
+        #adc_1 .Plus {
+            width: 25px;
+            height: 25px;
+            font-size: 18px;
+            line-height: 18px;
+            border-radius: 2px;
+        }
+
+        #adc_1 .Minus {
+            color: #ffffff;
+            background-color: #e82100;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(232, 33, 0)), to(rgb(170, 21, 0)));
+            background-image: -webkit-linear-gradient(top, rgb(232, 33, 0), rgb(170, 21, 0));
+            background-image: -moz-linear-gradient(top, rgb(232, 33, 0), rgb(170, 21, 0));
+            background-image: -o-linear-gradient(top, rgb(232, 33, 0), rgb(170, 21, 0));
+            background-image: -ms-linear-gradient(top, rgb(232, 33, 0), rgb(170, 21, 0));
+            background-image: linear-gradient(top, rgb(232, 33, 0), rgb(170, 21, 0));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#e82100', EndColorStr='#aa1500');
+            border: 1px solid #aa1500;
+        }
+
+        #adc_1 .Plus {
+            color: #ffffff;
+            background-color: #00c709;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 199, 9)), to(rgb(0, 148, 4)));
+            background-image: -webkit-linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
+            background-image: -moz-linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
+            background-image: -o-linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
+            background-image: -ms-linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
+            background-image: linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#00c709', EndColorStr='#009404');
+            border: 1px solid #009404;
+        }
+
+        #adc_1 .exclusiveItemWrapper,
+        #adc_1 .exclusiveItem,
+        #adc_1 .exclusiveItemSelected {
+            max-width: 200px;
+        }
+
+        #adc_1 .exclusiveItemWrapper {
+            margin: 10px auto 3px auto;
+        }
+
+        #adc_1 .exclusiveItem,
+        #adc_1 .exclusiveItemSelected {
+            font-size: 16px;
+            padding: 7px 0;
+        }
+
+        #adc_1 .exclusiveItem {
+            color: #444;
+            background-color: #e8e8e8;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(232, 232, 232)), to(rgb(232, 232, 232)));
+            background-image: -webkit-linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
+            background-image: -moz-linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
+            background-image: -o-linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
+            background-image: -ms-linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
+            background-image: linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#e8e8e8', EndColorStr='#e8e8e8');
+            border: 1px solid #444444;
+            transition: all ease-in-out .2s;
+        }
+
+        #adc_1 .exclusiveItem:hover {
+            color: #444;
+            background-color: #f3f3f3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 243, 243)), to(rgb(243, 243, 243)));
+            background-image: -webkit-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -moz-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -o-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -ms-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f3f3f3', EndColorStr='#f3f3f3');
+            border: 1px solid #444444;
+        }
+
+        #adc_1 .exclusiveItemSelected {
+            color: #444;
+            background-color: #ddefff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 239, 255)), to(rgb(211, 229, 244)));
+            background-image: -webkit-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -moz-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -o-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -ms-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ddefff', EndColorStr='#d3e5f4');
+            border: 1px solid #444444;
+        }
+
+        #adc_1 .stateOff {
+            background-color: #ffffff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(255, 255, 255)));
+            background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -moz-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -o-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -ms-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#ffffff');
+            transition: all ease-in-out .2s;
+        }
+
+        #adc_1 .stateHover {
+            background-color: #f3f3f3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 243, 243)), to(rgb(243, 243, 243)));
+            background-image: -webkit-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -moz-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -o-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -ms-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f3f3f3', EndColorStr='#f3f3f3');
+        }
+
+        #adc_1 .stateOn {
+            background-color: #ddefff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 239, 255)), to(rgb(211, 229, 244)));
+            background-image: -webkit-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -moz-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -o-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -ms-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ddefff', EndColorStr='#d3e5f4');
+        }
+
+        #adc_1_total {
+            width: 100%;
+            max-width: 200px;
+            margin: 5px auto 25px auto;
+        }
+
+        #adc_1_total .totalLabel {
+            color: #444444;
+            border: 2px solid #444444;
+            font-size: 18px;
+            padding: 2px;
+        }
+
+        #adc_1_total .total {
+            background-color: #444444;
+            color: #c3fefe;
+            border: 2px solid #444444;
+            font-family: 'DS-Digital-Bold',cursive;
+            font-size: 22px;
+        }
+
+        #adc_1 .responseTextEven {
+            /*min-height: 20px;*/
+        }
+
+        #adc_1 .responseTextOdd {
+            /*min-height: 40px; TO DO*/
+            background-color: #f3f3f3;
+            border-top: 1px solid #444444;
+            border-bottom: 1px solid #444444;
+        }
+
+        #adc_1 .price {
+            color: #444444;
+            font-weight: bold;
+        }
+
+        #adc_1 .responseTextEven,
+        #adc_1 .responseTextOdd,
+        #adc_1 .price {
+            padding: 3px 0 3px 0;
+        }
+    </style>
+
+    <!--
+           First ADC instance
+           Dynamic javascript generated
+    -->
+    <script type="text/javascript">
+        // Preload images used by the adc control
+        (function adc_1_preloader(arrPathImg) {
+            for (var i = 0, l = arrPathImg.length; i < l; i++) {
+                var imageObj = new Image();
+                imageObj.src = arrPathImg[i];
+            }
+        }(["../demo/asahi.png",
+            "../demo/corona.png",
+            "../demo/desperados.png",
+            "../demo/heineken.png",
+            "../demo/kronenbourg.png",
+            "../demo/bigasahi.png",
+            "../demo/bigcorona.png",
+            "../demo/bigdesperados.png",
+            "../demo/bigheineken.png",
+            "../demo/bigkronenbourg.png"]));
+    </script>
+
+</head>
+
+<body>
+
+<div class="adc-imageCounter_controlContainer">
+    <div id="adc_1_total">
+        <div class="totalLabel">Total remaining</div>
+        <div class="total">
+            <span>$ </span>
+            <span id="adc_1_totalValue">0.00</span>
+        </div>
+    </div>
+    <div id="adc_1" class="adc-imageCounter" data-maxspent="20" data-isremain="1">
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price="1.12">
+            <label for="C13" data-id="C13" data-adcid="adc_1">
+                <div class="imgWrapper">
+                    <img class="stateOff" src="../demo/asahi.png" />
+                    <a href="../demo/bigasahi.png" target="_blank" data-simplbox="C13"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    <div class="responseTextEven price">
+                        <span class="priceCurrency">$ </span>
+                        <span class="priceValue">1.12</span>
+                    </div>
+                    <div class="responseTextOdd">Asahi</div>
+                    <div class="responseTextEven">33cl</div>
+                </span>
+            </label>
+            <div class="Count">
+                <input class="Minus" data-id="C13" type="button" value="-" />
+                <input type="number" id="C13" data-adcid="adc_1" name="C13" value="" min="0" max="5" step="1" />
+                <input class="Plus" data-id="C13" data-adcid="adc_1" type="button" value="+" />
+            </div>
+            <div class="counter"><span id="idC13"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price="1.31">
+            <label for="C14" data-id="C14" data-adcid="adc_1">
+                <div class="imgWrapper">
+                    <img class="stateOff" src="../demo/corona.png" />
+                    <a href="../demo/bigcorona.png" target="_blank" data-simplbox="C14"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    <div class="responseTextEven price">
+                        <span class="priceCurrency">$ </span>
+                        <span class="priceValue">1.31</span>
+                    </div>
+                    <div class="responseTextOdd">Corona</div>
+                    <div class="responseTextEven">33cl</div>
+                </span>
+            </label>
+            <div class="Count">
+                <input class="Minus" data-id="C14" type="button" value="-" />
+                <input type="number" id="C14" data-adcid="adc_1" name="C14" value="" min="0" max="5" step="1" />
+                <input class="Plus" data-id="C14" data-adcid="adc_1" type="button" value="+" />
+            </div>
+            <div class="counter"><span id="idC14"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price="0.97">
+            <label for="C15" data-id="C15" data-adcid="adc_1">
+                <div class="imgWrapper">
+                    <img class="stateOff" src="../demo/desperados.png" />
+                    <a href="../demo/bigdesperados.png" target="_blank" data-simplbox="C15"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    <div class="responseTextEven price">
+                        <span class="priceCurrency">$ </span>
+                        <span class="priceValue">0.97</span>
+                    </div>
+                    <div class="responseTextOdd">Desperados</div>
+                    <div class="responseTextEven">33cl</div>
+                </span>
+            </label>
+            <div class="Count">
+                <input class="Minus" data-id="C15" type="button" value="-" />
+                <input type="number" id="C15" data-adcid="adc_1" name="C15" value="" min="0" max="5" step="1" />
+                <input class="Plus" data-id="C15" data-adcid="adc_1" type="button" value="+" />
+            </div>
+            <div class="counter"><span id="idC15"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price="0.85">
+            <label for="C16" data-id="C16" data-adcid="adc_1">
+                <div class="imgWrapper">
+                    <img class="stateOff" src="../demo/heineken.png" />
+                    <a href="../demo/bigheineken.png" target="_blank" data-simplbox="C16"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    <div class="responseTextEven price">
+                        <span class="priceCurrency">$ </span>
+                        <span class="priceValue">0.85</span>
+                    </div>
+                    <div class="responseTextOdd">Heineken</div>
+                    <div class="responseTextEven">33cl</div>
+                </span>
+            </label>
+            <div class="Count">
+                <input class="Minus" data-id="C16" type="button" value="-" />
+                <input type="number" id="C16" data-adcid="adc_1" name="C16" value="" min="0" max="5" step="1" />
+                <input class="Plus" data-id="C16" data-adcid="adc_1" type="button" value="+" />
+            </div>
+            <div class="counter"><span id="idC16"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price="1.03">
+            <label for="C17" data-id="C17" data-adcid="adc_1">
+                <div class="imgWrapper">
+                    <img class="stateOff" src="../demo/kronenbourg.png" />
+                    <a href="../demo/bigkronenbourg.png" target="_blank" data-simplbox="C17"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    <div class="responseTextEven price">
+                        <span class="priceCurrency">$ </span>
+                        <span class="priceValue">1.03</span>
+                    </div>
+                    <div class="responseTextOdd">Kronenbourg</div>
+                    <div class="responseTextEven">33cl</div>
+                </span>
+            </label>
+            <div class="Count">
+                <input class="Minus" data-id="C17" type="button" value="-" />
+                <input type="number" id="C17" data-adcid="adc_1" name="C17" value="" min="0" max="5" step="1" />
+                <input class="Plus" data-id="C17" data-adcid="adc_1" type="button" value="+" />
+            </div>
+            <div class="counter"><span id="idC17"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        <div class="exclusiveItemWrapper" data-id="C18" data-adcid="adc_1">
+            <div class="exclusiveItem" unselectable="on" onselectstart="return false;">
+                <span class="exclusiveText">Don't know</span>
+                <input type="number" id="C18" name="C18" value="" min="0" max="1" step="1" />
+            </div>
+        </div>
+
+        <div class="exclusiveItemWrapper" data-id="C19" data-adcid="adc_1">
+            <div class="exclusiveItem" unselectable="on" onselectstart="return false;">
+                <span class="exclusiveText">None of the above</span>
+                <input type="number" id="C19" name="C19" value="" min="0" max="1" step="1" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="../resources/static/simplbox.js"></script>
+<script type="text/javascript" src="../resources/static/adc2-imageCounter.js"></script>
+
+</body>
+</html>
