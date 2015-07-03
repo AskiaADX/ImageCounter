@@ -346,11 +346,11 @@
             && code != 39)
             || (!isNaN(maxValue) && !isNaN(diff) && (((diff * price) + sum) > maxValue))
             || (!isNaN(newValue) && !isNaN(max) && (newValue > max))) {
-
-                if (!e.preventDefault) {
-                    e.returnValue = false;
+            
+                if (!evt.preventDefault) {
+                    evt.returnValue = false;
                 } else {
-                    e.preventDefault();
+                    evt.preventDefault();
                 }
         }
     }
