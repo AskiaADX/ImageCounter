@@ -22,7 +22,7 @@
             for (var p = 0, q = inputs.length; p < q; p++) {
                 inputs[p].children[1].onkeypress = function(e){
                     validateInputNumber(e, this);
-                }
+                };
                 inputs[p].children[1].oninput = verifyMax(containers[j].id);
                 inputs[p].children[1].onchange = toggleSelectionState();
                 inputs[p].children[1].onchange();
@@ -339,13 +339,13 @@
             diff = parseFloat("" + oldValue + newStr.toString()) - parseFloat(oldValue),
             sum = calculateSum(obj.getAttribute("data-adcid"));
 
-        if ((!(code >= 48 && code <= 57 || code >= 96 && code <= 105)
+        if ((!(code >= 48 && code <= 57)
             && code != 46
             && code != 8
             && code != 37
             && code != 39)
             || (!isNaN(maxValue) && !isNaN(diff) && (((diff * price) + sum) > maxValue))
-            || (!isNaN(newValue) && !isNaN(max) &&(newValue > max))) {
+            || (!isNaN(newValue) && !isNaN(max) && (newValue > max))) {
 
                 if (!e.preventDefault) {
                     e.returnValue = false;
