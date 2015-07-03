@@ -339,14 +339,10 @@
             diff = parseFloat("" + oldValue + newStr.toString()) - parseFloat(oldValue),
             sum = calculateSum(obj.getAttribute("data-adcid"));
 
-        if ((!(code >= 48 && code <= 57)
-            && code != 46
-            && code != 8
-            && code != 37
-            && code != 39)
+        if ((!(code >= 48 && code <= 57))
             || (!isNaN(maxValue) && !isNaN(diff) && (((diff * price) + sum) > maxValue))
             || (!isNaN(newValue) && !isNaN(max) && (newValue > max))) {
-            
+
                 if (!evt.preventDefault) {
                     evt.returnValue = false;
                 } else {
