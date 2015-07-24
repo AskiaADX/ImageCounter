@@ -1,0 +1,410 @@
+/* @charset "utf-8"; */
+/* default.css */
+
+{%
+    Dim controlWidth = CurrentADC.PropValue("controlWidth")
+    Dim maxWidth = CurrentADC.PropValue("maxWidth")
+    Dim fontSize = CurrentADC.PropValue("fontSize")
+    Dim fontColour = CurrentADC.PropValue("fontColour")
+    Dim backgroundColour = CurrentADC.PropValue("backgroundColour")
+    Dim borderColour =CurrentADC.PropValue("borderColour")
+    Dim borderThickness =CurrentADC.PropValue("borderThickness")
+    Dim borderStyle =CurrentADC.PropValue("borderStyle")
+    Dim fontColourAlternate = CurrentADC.PropValue("fontColourAlternate")
+    Dim backgroundColourAlternate = CurrentADC.PropValue("backgroundColourAlternate")
+    Dim borderColourAlternate =CurrentADC.PropValue("borderColourAlternate")
+    Dim borderThicknessAlternate =CurrentADC.PropValue("borderThicknessAlternate")
+    Dim borderStyleAlternate =CurrentADC.PropValue("borderStyleAlternate")
+    Dim captionRowsMinHeight =CurrentADC.PropValue("captionRowsMinHeight")
+    Dim fontColourPrice = CurrentADC.PropValue("fontColourPrice")
+    Dim fontWeightPrice = CurrentADC.PropValue("fontWeightPrice")
+    Dim responseMaxWidth = CurrentADC.PropValue("responseMaxWidth")
+    Dim responseMargin = CurrentADC.PropValue("responseMargin")
+    Dim controlAlign
+    If (CurrentADC.PropValue("controlAlign") = "center" ) Then
+        controlAlign = "0 auto"
+    ElseIf (CurrentADC.PropValue("controlAlign") = "right" ) Then
+        controlAlign = "0 0 0 auto"
+    Else
+        controlAlign = "0 auto 0 0"
+    EndIf
+    Dim borderRadius = CurrentADC.PropValue("borderRadius")
+    Dim displayResponseText = CurrentADC.PropValue("displayResponseText")
+    Dim responseTextPadding = CurrentADC.PropValue("responseTextPadding")
+    Dim dropShadow = CurrentADC.PropValue("dropShadow")
+    Dim displayZoomLoop = CurrentADC.PropValue("displayZoomLoop")
+
+    Dim fontSizeCounter = CurrentADC.PropValue("fontSizeCounter")
+    Dim fontColourCounter = CurrentADC.PropValue("fontColourCounter")
+    Dim counterColourPrimary =CurrentADC.PropValue("counterColourPrimary")
+    Dim counterColourSecondary =CurrentADC.PropValue("counterColourSecondary")
+    Dim counterBorderColour =CurrentADC.PropValue("counterBorderColour")
+    Dim counterBorderThickness =CurrentADC.PropValue("counterBorderThickness")
+    Dim counterBorderStyle =CurrentADC.PropValue("counterBorderStyle")
+
+    Dim minusplusWidth = CurrentADC.PropValue("minusplusWidth")
+    Dim minusplusHeight = CurrentADC.PropValue("minusplusHeight")
+    Dim minusplusFontSize = CurrentADC.PropValue("minusplusFontSize")
+    Dim minusplusBorderRadius = CurrentADC.PropValue("minusplusBorderRadius")
+    Dim minusFontColour = CurrentADC.PropValue("minusFontColour")
+    Dim minusColourPrimary =CurrentADC.PropValue("minusColourPrimary")
+    Dim minusColourSecondary =CurrentADC.PropValue("minusColourSecondary")
+    Dim minusBorderColour =CurrentADC.PropValue("minusBorderColour")
+    Dim minusBorderThickness =CurrentADC.PropValue("minusBorderThickness")
+    Dim minusBorderStyle =CurrentADC.PropValue("minusBorderStyle")
+    Dim plusFontColour = CurrentADC.PropValue("plusFontColour")
+    Dim plusColourPrimary =CurrentADC.PropValue("plusColourPrimary")
+    Dim plusColourSecondary =CurrentADC.PropValue("plusColourSecondary")
+    Dim plusBorderColour =CurrentADC.PropValue("plusBorderColour")
+    Dim plusBorderThickness =CurrentADC.PropValue("plusBorderThickness")
+    Dim plusBorderStyle =CurrentADC.PropValue("plusBorderStyle")
+
+    Dim imageColourPrimary =CurrentADC.PropValue("imageColourPrimary")
+    Dim imageColourSecondary =CurrentADC.PropValue("imageColourSecondary")
+    Dim hoverImageColourPrimary =CurrentADC.PropValue("hoverImageColourPrimary")
+    Dim hoverImageColourSecondary =CurrentADC.PropValue("hoverImageColourSecondary")
+    Dim selectedImageColourPrimary =CurrentADC.PropValue("selectedImageColourPrimary")
+    Dim selectedImageColourSecondary =CurrentADC.PropValue("selectedImageColourSecondary")
+
+    Dim totalShow =CurrentADC.PropValue("totalShow")
+    Dim totalControlWidth = CurrentADC.PropValue("totalControlWidth")
+    Dim totalMaxWidth = CurrentADC.PropValue("totalMaxWidth")
+    Dim totalMarginTop = CurrentADC.PropValue("totalMarginTop")
+    Dim totalMarginBottom = CurrentADC.PropValue("totalMarginBottom")
+    Dim totalControlAlign
+    If (CurrentADC.PropValue("totalControlAlign") = "center" ) Then
+        totalControlAlign = totalMarginTop + " auto " + totalMarginBottom + " auto"
+    ElseIf (CurrentADC.PropValue("totalControlAlign") = "right" ) Then
+        totalControlAlign = totalMarginTop + " 0 " + totalMarginBottom + " auto"
+    Else
+        totalControlAlign = totalMarginTop + " auto " + totalMarginBottom + " 0"
+    EndIf
+    Dim totalFontSizeCaption = CurrentADC.PropValue("totalFontSizeCaption")
+    Dim totalFontColourCaption = CurrentADC.PropValue("totalFontColourCaption")
+    Dim totalPaddingCaption = CurrentADC.PropValue("totalPaddingCaption")
+    Dim totalFontSizeSum = CurrentADC.PropValue("totalFontSizeSum")
+    Dim totalFontColourSum = CurrentADC.PropValue("totalFontColourSum")
+    Dim totalBackgroundColour = CurrentADC.PropValue("totalBackgroundColour")
+
+    Dim exclMaxWidth = CurrentADC.PropValue("exclMaxWidth")
+    Dim exclMarginTop = CurrentADC.PropValue("exclMarginTop")
+    Dim exclMarginBottom = CurrentADC.PropValue("exclMarginBottom")
+    Dim exclAlign
+    If (CurrentADC.PropValue("exclAlign") = "center" ) Then
+        exclAlign = exclMarginTop + " auto " + exclMarginBottom + " auto"
+    ElseIf (CurrentADC.PropValue("exclAlign") = "right" ) Then
+        exclAlign = exclMarginTop + " 0 " + exclMarginBottom + " auto"
+    Else
+        exclAlign = exclMarginTop + " auto " + exclMarginBottom + " 0"
+    EndIf
+    Dim exclPadding = CurrentADC.PropValue("exclPadding")
+    Dim exclFontSize = CurrentADC.PropValue("exclFontSize")
+    Dim fontColourExcl = CurrentADC.PropValue("fontColourExcl")
+    Dim exclColourPrimary =CurrentADC.PropValue("exclColourPrimary")
+    Dim exclColourSecondary =CurrentADC.PropValue("exclColourSecondary")
+    Dim exclBorderColour =CurrentADC.PropValue("exclBorderColour")
+    Dim exclBorderThickness =CurrentADC.PropValue("exclBorderThickness")
+    Dim exclBorderStyle =CurrentADC.PropValue("exclBorderStyle")
+    Dim hoverFontColourExcl = CurrentADC.PropValue("hoverFontColourExcl")
+    Dim hoverExclColourPrimary =CurrentADC.PropValue("hoverExclColourPrimary")
+    Dim hoverExclColourSecondary =CurrentADC.PropValue("hoverExclColourSecondary")
+    Dim hoverExclBorderColour =CurrentADC.PropValue("hoverExclBorderColour")
+    Dim hoverExclBorderThickness =CurrentADC.PropValue("hoverExclBorderThickness")
+    Dim hoverExclBorderStyle =CurrentADC.PropValue("hoverExclBorderStyle")
+    Dim selectedFontColourExcl = CurrentADC.PropValue("selectedFontColourExcl")
+    Dim selectedExclColourPrimary =CurrentADC.PropValue("selectedExclColourPrimary")
+    Dim selectedExclColourSecondary =CurrentADC.PropValue("selectedExclColourSecondary")
+    Dim selectedExclBorderColour =CurrentADC.PropValue("selectedExclBorderColour")
+    Dim selectedExclBorderThickness =CurrentADC.PropValue("selectedExclBorderThickness")
+    Dim selectedExclBorderStyle =CurrentADC.PropValue("selectedExclBorderStyle")
+
+%}
+
+#adc_{%= CurrentADC.InstanceId %} {
+    width: {%= controlWidth %};
+    max-width: {%= maxWidth %};
+    margin: {%= controlAlign %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem input[type="number"],
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected input[type="number"],
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem input[type="text"],
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected input[type="text"]{
+    {% If (Browser.Support("javascript")) Then %}
+        display: none;
+    {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseItem,
+#adc_{%= CurrentADC.InstanceId %} .counter,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper {
+    box-shadow: {%= dropShadow %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} label img,
+#adc_{%= CurrentADC.InstanceId %} .responseText {
+    max-width: {%= responseMaxWidth %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseItem {
+    *max-width: {%= responseMaxWidth %}; /* IE7 and below */
+    background-color: {%= backgroundColour.ToHexa() %};
+    {% If (borderThickness = "none") Then %}
+        border: none;
+    {% Else %}
+        border: {%= borderThickness %} {%= borderStyle %} rgb({%= borderColour %});
+    {% EndIf %}
+    margin: {%= responseMargin %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseItem,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper {
+    border-radius: {%= borderRadius %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .imgWrapper {
+    border-top-left-radius: {%= borderRadius %};
+    border-top-right-radius: {%= borderRadius %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseText {
+    display: {%= displayResponseText %};
+    color: {%= fontColour.ToHexa() %};
+    font-size: {%= fontSize %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .counter {
+    {% If (Not(Browser.Support("javascript"))) Then %}
+        display: none;
+    {% Else %}
+        display: block;
+    {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .counter span {
+    color: {%= fontColourCounter.ToHexa() %};
+    font-size: {%= fontSizeCounter %};
+    background-color: {%= counterColourPrimary.ToHexa() %};
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= counterColourPrimary %})), to(rgb({%= counterColourSecondary %})));
+    background-image: -webkit-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
+    background-image: -moz-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
+    background-image: -o-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
+    background-image: -ms-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
+    background-image: linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= counterColourPrimary.ToHexa() %}', EndColorStr='{%= counterColourSecondary.ToHexa() %}');
+    {% If (counterBorderThickness = "none") Then %}
+        border: none;
+    {% Else %}
+        border: {%= counterBorderThickness %} {%= counterBorderStyle %} rgb({%= counterBorderColour %});
+    {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .imgWrapper a,
+#adc_{%= CurrentADC.InstanceId %} .imgZoom {
+    display: {%= displayZoomLoop %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .Minus,
+#adc_{%= CurrentADC.InstanceId %} .Plus {
+    {% If (Not(Browser.Support("javascript"))) Then %}
+        display: none;
+    {% EndIf %}
+    width: {%= minusplusWidth %};
+    height: {%= minusplusHeight %};
+    font-size: {%= minusplusFontSize %};
+    line-height: {%= minusplusFontSize %};
+    border-radius: {%= minusplusBorderRadius %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .Minus {
+    color: {%= minusFontColour.ToHexa() %};
+    background-color: {%= minusColourPrimary.ToHexa() %};
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= minusColourPrimary %})), to(rgb({%= minusColourSecondary %})));
+    background-image: -webkit-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
+    background-image: -moz-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
+    background-image: -o-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
+    background-image: -ms-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
+    background-image: linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= minusColourPrimary.ToHexa() %}', EndColorStr='{%= minusColourSecondary.ToHexa() %}');
+    {% If (minusBorderThickness = "none") Then %}
+        border: none;
+    {% Else %}
+        border: {%= minusBorderThickness %} {%= minusBorderStyle %} rgb({%= minusBorderColour %});
+    {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .Plus {
+      color: {%= plusFontColour.ToHexa() %};
+      background-color: {%= plusColourPrimary.ToHexa() %};
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= plusColourPrimary %})), to(rgb({%= plusColourSecondary %})));
+      background-image: -webkit-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
+      background-image: -moz-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
+      background-image: -o-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
+      background-image: -ms-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
+      background-image: linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= plusColourPrimary.ToHexa() %}', EndColorStr='{%= plusColourSecondary.ToHexa() %}');
+      {% If (plusBorderThickness = "none") Then %}
+        border: none;
+      {% Else %}
+        border: {%= plusBorderThickness %} {%= plusBorderStyle %} rgb({%= plusBorderColour %});
+      {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .stateOff {
+      background-color: {%= imageColourPrimary.ToHexa() %};
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= imageColourPrimary %})), to(rgb({%= imageColourSecondary %})));
+      background-image: -webkit-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
+      background-image: -moz-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
+      background-image: -o-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
+      background-image: -ms-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
+      background-image: linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= imageColourPrimary.ToHexa() %}', EndColorStr='{%= imageColourSecondary.ToHexa() %}');
+      transition: all ease-in-out .2s;
+}
+
+#adc_{%= CurrentADC.InstanceId %} .stateHover {
+      background-color: {%= hoverImageColourPrimary.ToHexa() %};
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= hoverImageColourPrimary %})), to(rgb({%= hoverImageColourSecondary %})));
+      background-image: -webkit-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
+      background-image: -moz-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
+      background-image: -o-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
+      background-image: -ms-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
+      background-image: linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= hoverImageColourPrimary.ToHexa() %}', EndColorStr='{%= hoverImageColourSecondary.ToHexa() %}');
+}
+
+#adc_{%= CurrentADC.InstanceId %} .stateOn {
+      background-color: {%= selectedImageColourPrimary.ToHexa() %};
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= selectedImageColourPrimary %})), to(rgb({%= selectedImageColourSecondary %})));
+      background-image: -webkit-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
+      background-image: -moz-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
+      background-image: -o-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
+      background-image: -ms-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
+      background-image: linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= selectedImageColourPrimary.ToHexa() %}', EndColorStr='{%= selectedImageColourSecondary.ToHexa() %}');
+}
+
+#adc_{%= CurrentADC.InstanceId %}_total {
+    {% If ((Not(Browser.Support("javascript"))) or (totalShow = "no")) Then %}
+    display: none;
+    {% EndIf %}
+     width: {%= totalControlWidth %};
+     max-width: {%= totalMaxWidth %};
+     margin: {%= totalControlAlign %};
+}
+
+#adc_{%= CurrentADC.InstanceId %}_total .totalLabel {
+    color: {%= totalFontColourCaption.ToHexa() %};
+    border: 2px solid {%= totalBackgroundColour.ToHexa() %};
+    font-size: {%= totalFontSizeCaption %};
+    padding: {%= totalPaddingCaption %};
+}
+
+#adc_{%= CurrentADC.InstanceId %}_total .total,
+#adc_{%= CurrentADC.InstanceId %}_total .totalCurrency,
+#adc_{%= CurrentADC.InstanceId %}_total #adc_{%= CurrentADC.InstanceId %}_totalValue {
+    background-color: {%= totalBackgroundColour.ToHexa() %};
+    color: {%= totalFontColourSum.ToHexa() %};
+    border: 2px solid {%= totalBackgroundColour.ToHexa() %};
+    font-family: 'DS-Digital-Bold',cursive;
+    font-size: {%= totalFontSizeSum %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseTextEven {
+    {% If (captionRowsMinHeight <> "") Then %}
+        min-height: {%= captionRowsMinHeight %};
+    {% EndIf %}
+    padding: {%= responseTextPadding %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .responseTextOdd {
+    {% If (captionRowsMinHeight <> "") Then %}
+        min-height: {%= captionRowsMinHeight %};
+    {% EndIf %}
+    background-color: {%= backgroundColourAlternate.ToHexa() %};
+    color: {%= fontColourAlternate.ToHexa() %};
+    {% If (borderThicknessAlternate = "none") Then %}
+        border-top: none;
+        border-bottom: none;
+    {% Else %}
+        border-top: {%= borderThicknessAlternate %} {%= borderStyleAlternate %} rgb({%= borderColourAlternate %});
+        border-bottom: {%= borderThicknessAlternate %} {%= borderStyleAlternate %} rgb({%= borderColourAlternate %});
+    {% EndIf %}
+    padding: {%= responseTextPadding %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .price {
+    color: {%= fontColourPrice.ToHexa() %};
+    font-weight: {%= fontWeightPrice %};
+    padding: {%= responseTextPadding %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected {
+  max-width: {%= exclMaxWidth %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper {
+  margin: {%= exclAlign %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected {
+    font-size: {%= exclFontSize %};
+    padding: {%= exclPadding %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem {
+  color: {%= fontColourExcl.ToHexa() %};
+  background-color: {%= exclColourPrimary.ToHexa() %};
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= exclColourPrimary %})), to(rgb({%= exclColourSecondary %})));
+  background-image: -webkit-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
+  background-image: -moz-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
+  background-image: -o-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
+  background-image: -ms-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
+  background-image: linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= exclColourPrimary.ToHexa() %}', EndColorStr='{%= exclColourSecondary.ToHexa() %}');
+  {% If (exclBorderThickness = "none") Then %}
+    border: none;
+  {% Else %}
+    border: {%= exclBorderThickness %} {%= exclBorderStyle %} rgb({%= exclBorderColour %});
+  {% EndIf %}
+  transition: all ease-in-out .2s;
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem:hover {
+  color: {%= hoverFontColourExcl.ToHexa() %};
+  background-color: {%= hoverExclColourPrimary.ToHexa() %};
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= hoverExclColourPrimary %})), to(rgb({%= hoverExclColourSecondary %})));
+  background-image: -webkit-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
+  background-image: -moz-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
+  background-image: -o-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
+  background-image: -ms-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
+  background-image: linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= hoverExclColourPrimary.ToHexa() %}', EndColorStr='{%= hoverExclColourSecondary.ToHexa() %}');
+  {% If (hoverExclBorderThickness = "none") Then %}
+    border: none;
+  {% Else %}
+    border: {%= hoverExclBorderThickness %} {%= hoverExclBorderStyle %} rgb({%= hoverExclBorderColour %});
+  {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected {
+  color: {%= selectedFontColourExcl.ToHexa() %};
+  background-color: {%= selectedExclColourPrimary.ToHexa() %};
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= selectedExclColourPrimary %})), to(rgb({%= selectedExclColourSecondary %})));
+  background-image: -webkit-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
+  background-image: -moz-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
+  background-image: -o-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
+  background-image: -ms-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
+  background-image: linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= selectedExclColourPrimary.ToHexa() %}', EndColorStr='{%= selectedExclColourSecondary.ToHexa() %}');
+  {% If (selectedExclBorderThickness = "none") Then %}
+    border: none;
+  {% Else %}
+    border: {%= selectedExclBorderThickness %} {%= selectedExclBorderStyle %} rgb({%= selectedExclBorderColour %});
+  {% EndIf %}
+}

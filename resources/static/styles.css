@@ -71,6 +71,7 @@
 
 .adc-imageCounter .responseText {
     margin: 0 auto;
+    padding: 0;
 }
 
 .adc-imageCounter .counter {
@@ -89,6 +90,7 @@
 
 .adc-imageCounter .imgZoom {
     position: absolute;
+    background: url(magnifyingGlass.png) center center no-repeat;
     bottom: 7px;
     right: 2px;
     width: 22px;

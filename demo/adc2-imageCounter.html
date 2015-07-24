@@ -21,11 +21,6 @@
             margin: 0 auto;
         }
 
-        #adc_1 .responseItem input[type="number"],
-        #adc_1 .responseItem input[type="text"] {
-            /*visibility: hidden;*/
-        }
-
         #adc_1 .exclusiveItem input[type="number"],
         #adc_1 .exclusiveItemSelected input[type="number"],
         #adc_1 .exclusiveItem input[type="text"],
@@ -37,6 +32,11 @@
         #adc_1 .counter,
         #adc_1 .exclusiveItemWrapper {
             box-shadow: 1px 1px 2px 0 #999;
+        }
+
+        #adc_1 label img,
+        #adc_1 .responseText {
+            max-width: 120px;
         }
 
         #adc_1 .responseItem {
@@ -58,11 +58,6 @@
             border-top-right-radius: 2px;
         }
 
-        #adc_1 label img,
-        #adc_1 .responseText {
-            max-width: 120px;
-        }
-
         #adc_1 .responseText {
             /*display:none;*/
             /* TO DO */
@@ -71,6 +66,9 @@
             padding: 0;
         }
 
+        #adc_1 .counter {
+            /*display: none;*/
+        }
         #adc_1 .counter span {
             color: #ffffff;
             font-size: 16px;
@@ -85,13 +83,14 @@
             border: 1px solid #e36400;
         }
 
+        #adc_1 .imgWrapper a,
         #adc_1 .imgZoom {
-            /*display: none;*/ /* TO DO */
-            background: url(../resources/static/magnifyingGlass.png) center center no-repeat;
+            /*display: none;*/
         }
 
         #adc_1 .Minus,
         #adc_1 .Plus {
+            /*display:none;*/
             width: 25px;
             height: 25px;
             font-size: 18px;
@@ -123,6 +122,83 @@
             background-image: linear-gradient(top, rgb(0, 199, 9), rgb(0, 148, 4));
             filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#00c709', EndColorStr='#009404');
             border: 1px solid #009404;
+        }
+
+        #adc_1 .stateOff {
+            background-color: #ffffff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(255, 255, 255)));
+            background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -moz-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -o-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: -ms-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            background-image: linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#ffffff');
+            transition: all ease-in-out .2s;
+        }
+
+        #adc_1 .stateHover {
+            background-color: #f3f3f3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 243, 243)), to(rgb(243, 243, 243)));
+            background-image: -webkit-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -moz-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -o-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: -ms-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            background-image: linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f3f3f3', EndColorStr='#f3f3f3');
+        }
+
+        #adc_1 .stateOn {
+            background-color: #ddefff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 239, 255)), to(rgb(211, 229, 244)));
+            background-image: -webkit-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -moz-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -o-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: -ms-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            background-image: linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ddefff', EndColorStr='#d3e5f4');
+        }
+
+        #adc_1_total {
+            width: 100%;
+            max-width: 200px;
+            margin: 5px auto 25px auto;
+        }
+
+        #adc_1_total .totalLabel {
+            color: #444444;
+            border: 2px solid #444444;
+            font-size: 18px;
+            padding: 2px;
+        }
+
+        #adc_1_total .total,
+        #adc_1_total .totalCurrency,
+        #adc_1_total #adc_1_totalValue {
+            background-color: #444444;
+            color: #c3fefe;
+            border: 2px solid #444444;
+            font-family: 'DS-Digital-Bold',cursive;
+            font-size: 22px;
+        }
+
+        #adc_1 .responseTextEven {
+            /*min-height: 20px;*/
+            padding: 2px 0;
+        }
+
+        #adc_1 .responseTextOdd {
+            /*min-height: 40px; TO DO*/
+            background-color: #f3f3f3;
+            color: #444;
+            border-top: 1px solid #444444;
+            border-bottom: 1px solid #444444;
+            padding: 2px 0;
+        }
+
+        #adc_1 .price {
+            color: #444444;
+            font-weight: bold;
+            padding: 2px 0;
         }
 
         #adc_1 .exclusiveItemWrapper,
@@ -181,82 +257,6 @@
             border: 1px solid #444444;
         }
 
-        #adc_1 .stateOff {
-            background-color: #ffffff;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(255, 255, 255)));
-            background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
-            background-image: -moz-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
-            background-image: -o-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
-            background-image: -ms-linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
-            background-image: linear-gradient(top, rgb(255, 255, 255), rgb(255, 255, 255));
-            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#ffffff');
-            transition: all ease-in-out .2s;
-        }
-
-        #adc_1 .stateHover {
-            background-color: #f3f3f3;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 243, 243)), to(rgb(243, 243, 243)));
-            background-image: -webkit-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
-            background-image: -moz-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
-            background-image: -o-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
-            background-image: -ms-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
-            background-image: linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
-            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f3f3f3', EndColorStr='#f3f3f3');
-        }
-
-        #adc_1 .stateOn {
-            background-color: #ddefff;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 239, 255)), to(rgb(211, 229, 244)));
-            background-image: -webkit-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
-            background-image: -moz-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
-            background-image: -o-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
-            background-image: -ms-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
-            background-image: linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
-            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ddefff', EndColorStr='#d3e5f4');
-        }
-
-        #adc_1_total {
-            width: 100%;
-            max-width: 200px;
-            margin: 5px auto 25px auto;
-        }
-
-        #adc_1_total .totalLabel {
-            color: #444444;
-            border: 2px solid #444444;
-            font-size: 18px;
-            padding: 2px;
-        }
-
-        #adc_1_total .total {
-            background-color: #444444;
-            color: #c3fefe;
-            border: 2px solid #444444;
-            font-family: 'DS-Digital-Bold',cursive;
-            font-size: 22px;
-        }
-
-        #adc_1 .responseTextEven {
-            /*min-height: 20px;*/
-        }
-
-        #adc_1 .responseTextOdd {
-            /*min-height: 40px; TO DO*/
-            background-color: #f3f3f3;
-            border-top: 1px solid #444444;
-            border-bottom: 1px solid #444444;
-        }
-
-        #adc_1 .price {
-            color: #444444;
-            font-weight: bold;
-        }
-
-        #adc_1 .responseTextEven,
-        #adc_1 .responseTextOdd,
-        #adc_1 .price {
-            padding: 3px 0 3px 0;
-        }
     </style>
 
     <!--
@@ -290,7 +290,7 @@
     <div id="adc_1_total">
         <div class="totalLabel">Total remaining</div>
         <div class="total">
-            <span>$ </span>
+            <span class="totalCurrency">$ </span>
             <span id="adc_1_totalValue">0.00</span>
         </div>
     </div>

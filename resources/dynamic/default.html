@@ -1,0 +1,171 @@
+{%
+Dim inputName
+Dim inputValue
+Dim caption
+Dim inputId
+Dim image
+Dim imageBig
+Dim arrPath
+Dim filename
+Dim filenameLength
+Dim leftPath
+Dim productDescription
+Dim price
+Dim clsImg
+Dim clsExcl
+
+Dim i
+Dim j
+Dim k
+Dim ar = CurrentQuestion.ParentLoop.AvailableResponses
+
+Dim totalCaption = CurrentADC.PropValue("totalCaption")
+Dim unitCurrency = CurrentADC.PropValue("unitCurrency")
+Dim showCurrency = CurrentADC.PropValue("showCurrency")
+Dim currencyAlign = CurrentADC.PropValue("currencyAlign")
+
+Dim totalCurrency = ""
+If ((showCurrency = "total") or (showCurrency = "both")) Then
+    totalCurrency = unitCurrency
+EndIf
+
+Dim responseCurrency = ""
+If ((showCurrency = "price") or (showCurrency = "both")) Then
+    responseCurrency = unitCurrency
+EndIf
+
+Dim maxValue = CurrentQuestion.MaxValue
+Dim imagePrefix =CurrentADC.PropValue("imagePrefix")
+Dim pricePosition =CurrentADC.PropValue("pricePosition")
+Dim exclNb =CurrentADC.PropValue("exclNb")
+Dim minusplusPosition =CurrentADC.PropValue("minusplusPosition")
+Dim totalShowRemaining =CurrentADC.PropValue("totalShowRemaining")
+Dim spendingLimit =CurrentADC.PropValue("spendingLimit")
+
+%}
+<div class="adc-imageCounter_controlContainer">
+    <div id="adc_{%= CurrentADC.InstanceId %}_total">
+        <div class="totalLabel">{%= totalCaption %}</div>
+        <div class="total">
+            {% If (currencyAlign = "left") Then %}
+            <span class="totalCurrency">{%= totalCurrency %}</span>
+            <span id="adc_{%= CurrentADC.InstanceId %}_totalValue">0.00</span>
+            {% Else %}
+            <span id="adc_{%= CurrentADC.InstanceId %}_totalValue">0.00</span>
+            <span class="totalCurrency">{%= totalCurrency %}</span>
+            {% EndIf %}
+        </div>
+    </div>
+    <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-imageCounter" data-maxspent="{%= spendingLimit %}" data-isremain="{%= totalShowRemaining %}">
+        {%
+        For i = 1 To (ar.Count - exclNb.ToNumber())
+            inputName = CurrentQuestion.iteration(ar[i].Index).InputName()
+            inputValue  = CurrentQuestion.iteration(ar[i].Index).Value
+            caption     = ar[i].Caption
+            If (ar.ResourceURL[i] <> "") Then
+                image		= ar.ResourceURL[i]
+            Else
+                image = CurrentADC.URLTo("static/blank.png")
+            EndIf
+
+            arrPath = image.split("/")
+            filename = arrPath[arrPath.Count]
+            filenameLength = filename.Length
+            leftPath = image.left(image.Length - filenameLength)
+
+            If (ar.ResourceURL[i] <> "") Then
+                imageBig = leftPath + imagePrefix + filename
+            Else
+                imageBig = CurrentADC.URLTo("static/blank.png")
+            EndIf
+
+            productDescription = caption.Split("|")
+            price = productDescription[pricePosition.ToNumber()]
+
+            If (inputValue >= 1) Then
+                clsImg = "stateOn"
+            Else
+                clsImg = "stateOff"
+            EndIf
+        %}
+
+        <div class="responseItem" unselectable="on" onselectstart="return false;" data-price='{%= price.Trim().Replace(",",".") %}'>
+            <label for="{%= inputName%}" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
+                <div class="imgWrapper">
+                    <img class="{%= clsImg %}" src="{%= image %}" />
+                    <a href="{%= imageBig %}" target="_blank" data-simplbox="{%= inputName%}"><div class="imgZoom"></div></a>
+                </div>
+                <span class="responseText">
+                    {%
+                    For j = 1 To productDescription.Count
+                        If ((j = pricePosition.ToNumber()) and ((j mod 2) = 0)) Then %}
+                            <div class="responseTextOdd price">
+                                {% If (currencyAlign = "left") Then %}
+                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceValue">{%= price %}</span>
+                                {% Else %}
+                                <span class="priceValue">{%= price %}</span>
+                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                {% EndIf %}
+                            </div>
+                        {% ElseIf ((j = pricePosition.ToNumber()) and ((j mod 2) <> 0)) Then %}
+                            <div class="responseTextEven price">
+                                {% If (currencyAlign = "left") Then %}
+                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceValue">{%= price %}</span>
+                                {% Else %}
+                                <span class="priceValue">{%= price %}</span>
+                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                {% EndIf %}
+                            </div>
+                        {% ElseIf ((j <> pricePosition.ToNumber()) and ((j mod 2) = 0)) Then %}
+                            <div class="responseTextOdd">{%= productDescription[j] %}</div>
+                        {% Else %}
+                            <div class="responseTextEven">{%= productDescription[j] %}</div>
+                        {% EndIf
+                    Next j
+                    %}
+                </span>
+            </label>
+            <div class="Count">
+                {% If (minusplusPosition = "minusplus") Then %}
+                <input class="Minus" data-id="{%= inputName%}" type="button" value="-" />
+                <input type="number" id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
+                <input class="Plus" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" type="button" value="+" />
+                {% Else %}
+                <input class="Plus" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" type="button" value="+" />
+                <input type="number" id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
+                <input class="Minus" data-id="{%= inputName%}" type="button" value="-" />
+                {% EndIf %}
+            </div>
+            <div class="counter"><span id="id{%= inputName%}"></span></div>
+            <div style="clear: both;"></div>
+        </div>
+
+        {% Next i %}
+
+        <div style="clear: both;"></div>
+
+        {%
+        If (exclNb.ToNumber() >= 1) Then
+            For k = ((ar.Count - exclNb.ToNumber()) + 1) To ar.Count
+                inputName = CurrentQuestion.iteration(ar[k].Index).InputName()
+                inputValue  = CurrentQuestion.iteration(ar[k].Index).Value
+                caption     = ar[k].Caption
+                If (inputValue >= 1) Then
+                    clsExcl = "exclusiveItemSelected"
+                Else
+                    clsExcl = "exclusiveItem"
+                EndIf
+        %}
+        <div class="exclusiveItemWrapper" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
+            <div class="{%= clsExcl %}" unselectable="on" onselectstart="return false;">
+                <span class="exclusiveText">{%= caption%}</span>
+                <input type="number" id="{%= inputName%}" name="{%= inputName%}" value="" min="0" max="1" step="1" />
+            </div>
+        </div>
+        {% Next k
+        EndIf %}
+
+    </div>
+</div>
