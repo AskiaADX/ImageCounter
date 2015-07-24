@@ -310,6 +310,7 @@
     border: 2px solid {%= totalBackgroundColour.ToHexa() %};
     font-family: 'DS-Digital-Bold',cursive;
     font-size: {%= totalFontSizeSum %};
+    line-height: initial;
 }
 
 #adc_{%= CurrentADC.InstanceId %} .responseTextEven {
