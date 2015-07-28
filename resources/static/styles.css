@@ -8,6 +8,11 @@
     font-weight: normal;
     font-style: normal;
 }
+html {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
 .adc-imageCounter_controlContainer,
 .adc-imageCounter .responseText {
     width: 100%;

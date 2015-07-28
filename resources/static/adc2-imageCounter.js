@@ -268,6 +268,7 @@
             elA.parentNode.removeChild(elA);
         };
         var img = new SimplBox(document.querySelectorAll("[data-simplbox='" + strId + "']"), {
+            quitOnImageClick: true,
             onStart: overlayOn,
             onEnd: overlayOff,
             onImageLoadStart: preLoadIconOn,

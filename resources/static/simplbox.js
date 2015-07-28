@@ -508,7 +508,7 @@
         imageSize: 0.8,
 
         quitOnImageClick: true,
-        quitOnDocumentClick: true,
+        quitOnDocumentClick: false,
         enableKeyboard: true,
 
         onImageLoadStart: function () {},
