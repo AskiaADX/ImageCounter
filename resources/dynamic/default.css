@@ -307,10 +307,13 @@
 #adc_{%= CurrentADC.InstanceId %}_total #adc_{%= CurrentADC.InstanceId %}_totalValue {
     background-color: {%= totalBackgroundColour.ToHexa() %};
     color: {%= totalFontColourSum.ToHexa() %};
-    border: 2px solid {%= totalBackgroundColour.ToHexa() %};
-    font-family: 'DS-Digital-Bold',cursive;
+    font-family: 'DS-Digital-Bold',arial;
     font-size: {%= totalFontSizeSum %};
     line-height: initial;
+}
+
+#adc_{%= CurrentADC.InstanceId %}_total .total {
+    border: 2px solid {%= totalBackgroundColour.ToHexa() %};
 }
 
 #adc_{%= CurrentADC.InstanceId %} .responseTextEven {
