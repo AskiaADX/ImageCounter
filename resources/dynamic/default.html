@@ -90,10 +90,10 @@ Dim spendingLimit =CurrentADC.PropValue("spendingLimit")
         %}
 
         <div class="responseItem" unselectable="on" onselectstart="return false;" data-price='{%= price.Trim().Replace(",",".") %}'>
-            <label for="{%= inputName%}" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
+            <label data-id="{%= inputName %}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
                 <div class="imgWrapper">
                     <img class="{%= clsImg %}" src="{%= image %}" />
-                    <a href="{%= imageBig %}" target="_blank" data-simplbox="{%= inputName%}"><div class="imgZoom"></div></a>
+                    <a href="{%= imageBig %}" target="_blank" data-simplbox="{%= inputName %}"><div class="imgZoom"></div></a>
                 </div>
                 <span class="responseText">
                     {%

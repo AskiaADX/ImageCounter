@@ -10,7 +10,7 @@
                 labels[i].onmouseover = displayHover();
                 labels[i].onmouseout = hideHover();
                 labels[i].onclick = incrementCounter;
-                simplboxConstructorCall(labels[i].htmlFor);
+                simplboxConstructorCall(labels[i].getAttribute("data-id"));
             }
             var minus = document.querySelectorAll("#" + containers[j].id + " .Minus"),
                 plus = document.querySelectorAll("#" + containers[j].id + " .Plus");
@@ -114,7 +114,7 @@
     function displayHover() {
         return function () {
             if (hasClass(this.parentNode, "responseItem")) {
-                var input = document.getElementById(this.htmlFor),
+                var input = document.getElementById(this.getAttribute("data-id")),
                     cls = "stateOff",
                     clsHover = "stateHover",
                     obj = this.children[0].children[0];
@@ -129,7 +129,7 @@
     function hideHover() {
         return function () {
             if (hasClass(this.parentNode, "responseItem")) {
-                var input = document.getElementById(this.htmlFor),
+                var input = document.getElementById(this.getAttribute("data-id")),
                     cls = "stateOff",
                     clsHover = "stateHover",
                     obj = this.children[0].children[0];

@@ -57,7 +57,7 @@
 
         checkBrowser: function () {
             var base = this,
-                isTouch = "ontouchstart" in window || window.navigator.msMaxTouchPoints || navigator.maxTouchPoints || FALSE,
+                isTouch = "ontouchstart" in docElem || window.navigator.msMaxTouchPoints || navigator.maxTouchPoints || FALSE,
                 hasPointers = isTouch && (window.navigator.pointerEnabled || window.navigator.msPointerEnabled);
 
             base.browser = {
@@ -238,7 +238,7 @@
                     
             // Add event listener.
             if (base.m_Options.quitOnImageClick) {
-                base.addEvent(base.m_CurrentImageElement, "click", function (event) {
+                base.addEvent(base.m_CurrentImageElement, "touchstart click", function (event) {
                     if (event.preventDefault) {
                         event.preventDefault();
                     }
