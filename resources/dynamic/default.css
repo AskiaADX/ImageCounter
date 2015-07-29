@@ -340,9 +340,13 @@
 }
 
 #adc_{%= CurrentADC.InstanceId %} .price {
-    color: {%= fontColourPrice.ToHexa() %};
     font-weight: {%= fontWeightPrice %};
     padding: {%= responseTextPadding %};
+}
+
+#adc_{%= CurrentADC.InstanceId %} .priceCurrency,
+#adc_{%= CurrentADC.InstanceId %} .priceValue {
+    color: {%= fontColourPrice.ToHexa() %};
 }
 
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper,
