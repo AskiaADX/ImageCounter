@@ -171,7 +171,6 @@
 
 #adc_{%= CurrentADC.InstanceId %} .responseText {
     display: {%= displayResponseText %};
-    color: {%= fontColour.ToHexa() %};
     font-size: {%= fontSize %};
 }
 
@@ -317,6 +316,7 @@
 }
 
 #adc_{%= CurrentADC.InstanceId %} .responseTextEven {
+    color: {%= fontColour.ToHexa() %};
     {% If (captionRowsMinHeight <> "") Then %}
         min-height: {%= captionRowsMinHeight %};
     {% EndIf %}
