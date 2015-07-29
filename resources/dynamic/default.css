@@ -211,8 +211,8 @@
     {% If (Not(Browser.Support("javascript"))) Then %}
         display: none;
     {% EndIf %}
-    width: {%= minusplusWidth %};
-    height: {%= minusplusHeight %};
+    width: {%= minusplusWidth %}; !important
+    height: {%= minusplusHeight %}; !important
     font-size: {%= minusplusFontSize %};
     line-height: {%= minusplusFontSize %};
     border-radius: {%= minusplusBorderRadius %};
