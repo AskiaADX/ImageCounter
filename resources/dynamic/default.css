@@ -362,7 +362,6 @@
 }
 
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItem {
-  color: {%= fontColourExcl.ToHexa() %};
   background-color: {%= exclColourPrimary.ToHexa() %};
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= exclColourPrimary %})), to(rgb({%= exclColourSecondary %})));
   background-image: -webkit-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
@@ -379,8 +378,11 @@
   transition: all ease-in-out .2s;
 }
 
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem .exclusiveText {
+    color: {%= fontColourExcl.ToHexa() %};
+}
+
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItem:hover {
-  color: {%= hoverFontColourExcl.ToHexa() %};
   background-color: {%= hoverExclColourPrimary.ToHexa() %};
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= hoverExclColourPrimary %})), to(rgb({%= hoverExclColourSecondary %})));
   background-image: -webkit-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
@@ -396,8 +398,11 @@
   {% EndIf %}
 }
 
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItem:hover .exclusiveText {
+    color: {%= hoverFontColourExcl.ToHexa() %};
+}
+
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected {
-  color: {%= selectedFontColourExcl.ToHexa() %};
   background-color: {%= selectedExclColourPrimary.ToHexa() %};
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= selectedExclColourPrimary %})), to(rgb({%= selectedExclColourSecondary %})));
   background-image: -webkit-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
@@ -411,4 +416,8 @@
   {% Else %}
     border: {%= selectedExclBorderThickness %} {%= selectedExclBorderStyle %} rgb({%= selectedExclBorderColour %});
   {% EndIf %}
+}
+
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected .exclusiveText {
+    color: {%= selectedFontColourExcl.ToHexa() %};
 }

@@ -219,7 +219,6 @@
         }
 
         #adc_1 .exclusiveItem {
-            color: #444;
             background-color: #e8e8e8;
             background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(232, 232, 232)), to(rgb(232, 232, 232)));
             background-image: -webkit-linear-gradient(top, rgb(232, 232, 232), rgb(232, 232, 232));
@@ -232,8 +231,11 @@
             transition: all ease-in-out .2s;
         }
 
-        #adc_1 .exclusiveItem:hover {
+        #adc_1 .exclusiveItem .exclusiveText {
             color: #444;
+        }
+
+        #adc_1 .exclusiveItem:hover {
             background-color: #f3f3f3;
             background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 243, 243)), to(rgb(243, 243, 243)));
             background-image: -webkit-linear-gradient(top, rgb(243, 243, 243), rgb(243, 243, 243));
@@ -245,8 +247,11 @@
             border: 1px solid #444444;
         }
 
-        #adc_1 .exclusiveItemSelected {
+        #adc_1 .exclusiveItem:hover .exclusiveText {
             color: #444;
+        }
+
+        #adc_1 .exclusiveItemSelected {
             background-color: #ddefff;
             background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 239, 255)), to(rgb(211, 229, 244)));
             background-image: -webkit-linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
@@ -256,6 +261,10 @@
             background-image: linear-gradient(top, rgb(221, 239, 255), rgb(211, 229, 244));
             filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ddefff', EndColorStr='#d3e5f4');
             border: 1px solid #444444;
+        }
+
+        #adc_1 .exclusiveItemSelected .exclusiveText {
+            color: #444;
         }
 
     </style>
