@@ -118,6 +118,13 @@
     Dim selectedExclBorderThickness =CurrentADC.PropValue("selectedExclBorderThickness")
     Dim selectedExclBorderStyle =CurrentADC.PropValue("selectedExclBorderStyle")
 
+    Dim priceDisplay
+    If (CurrentADC.PropValue("showPrice") = "no" ) Then
+        priceDisplay = "none"
+    Else
+        priceDisplay = "block"
+    EndIf
+
 %}
 
 #adc_{%= CurrentADC.InstanceId %} {
@@ -342,6 +349,7 @@
 #adc_{%= CurrentADC.InstanceId %} .price {
     font-weight: {%= fontWeightPrice %};
     padding: {%= responseTextPadding %};
+    display: {%= priceDisplay %};
 }
 
 #adc_{%= CurrentADC.InstanceId %} .priceCurrency,

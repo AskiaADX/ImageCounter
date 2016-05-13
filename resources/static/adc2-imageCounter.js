@@ -118,7 +118,7 @@
                     cls = "stateOff",
                     clsHover = "stateHover",
                     obj = this.children[0].children[0];
-                if (!(input.value >= 1) || (isNaN(input.value))) {
+                if (!(input.value > 0) || (isNaN(input.value))) {
                     removeClass(obj, cls);
                     addClass(obj, clsHover);
                 }
@@ -133,7 +133,7 @@
                     cls = "stateOff",
                     clsHover = "stateHover",
                     obj = this.children[0].children[0];
-                if (!(input.value >= 1) || (isNaN(input.value))) {
+                if (!(input.value > 0) || (isNaN(input.value))) {
                     removeClass(obj, clsHover);
                     addClass(obj, cls);
                 }
@@ -165,7 +165,7 @@
             counter = document.getElementById("id" + this.getAttribute("data-id")),
             value = parseInt(input.value, 10);
         if (!isNaN(value)) {
-            if (value >= 1) value--;
+            if (value > 0) value--;
             input.value = (value != 0) ? value.toString() : "";
             counter.innerHTML = (value != 0) ? value.toString() : "";
             input.onchange();
@@ -179,7 +179,7 @@
                 clsSel = "stateOn",
                 obj = this.parentNode.parentNode.children[0].children[0].children[0],
                 counter = this.parentNode.parentNode.children[2];
-            if (this.value >= 1) {
+            if (this.value > 0) {
                 removeClass(obj, cls);
                 removeClass(obj, clsHover);
                 addClass(obj, clsSel);
@@ -202,7 +202,7 @@
                 cls = "exclusiveItem",
                 clsSel = "exclusiveItemSelected",
                 obj = this.children[0];
-            if (input.value >= 1) {
+            if (input.value > 0) {
                 input.value = "";
                 addClass(obj, cls);
                 removeClass(obj, clsSel);
@@ -222,7 +222,7 @@
         for (var i = 0, j = items.length; i < j; i++) {
             var selector = (condition)? items[i].getAttribute("data-id") : items[i].children[0].getAttribute("data-id"),
                 input = document.getElementById(selector);
-            if (input.value >= 1) {
+            if (input.value > 0) {
                 input.value = "";
                 if (condition) {
                     addClass(input.parentNode, "exclusiveItem");
@@ -277,32 +277,18 @@
         img.init();
     }
 
-    function alwaysTwoDigit(amount) {
-        var i = parseFloat(amount);
-        if (isNaN(i)) i = 0.00;
-        var minus = "";
-        if (i < 0) minus = "-";
-        i = Math.abs(i);
-        i = parseInt((i + .005) * 100);
-        i = i / 100;
-        var s = i.toString();
-        if (s.indexOf(".") < 0) s += ".00";
-        if (s.indexOf(".") == (s.length - 2)) s += "0";
-        s = minus + s;
-        return s;
-    }
-
     function updateTotal() {
         var containers = document.getElementsByClassName("adc-imageCounter");
         for (var j = 0, l = containers.length; j < l; j++) {
             var sum = calculateSum(containers[j].id),
                 maxValue = parseFloat(containers[j].getAttribute("data-maxspent").replace(/\s+/g, "")),
+                nbDigits = parseFloat(containers[j].getAttribute("data-digits").replace(/\s+/g, "")),
                 isRemain = containers[j].getAttribute("data-isremain"),
                 totalValue = document.getElementById(containers[j].id + "_totalValue");
             if ((isRemain == "1" && !isNaN(maxValue))) {
-                totalValue.innerHTML = alwaysTwoDigit(maxValue - sum);
+                totalValue.innerHTML = (maxValue - sum).toFixed(nbDigits);
             } else {
-                totalValue.innerHTML = alwaysTwoDigit(sum);
+                totalValue.innerHTML = (sum).toFixed(nbDigits);
             }
         }
     }
@@ -323,7 +309,7 @@
         return function () {
             var maxValue = parseFloat(document.getElementById(strAdcId).getAttribute("data-maxspent").replace(/\s+/g, ""));
             if (calculateSum(strAdcId) > maxValue && !isNaN(maxValue)) {
-                this.value = ((parseFloat(this.value) - 1) >= 1) ? (parseFloat(this.value) - 1) : "";
+                this.value = ((parseFloat(this.value) - 1) > 0) ? (parseFloat(this.value) - 1) : "";
             }
         }
     }
@@ -337,7 +323,7 @@
             oldValue = ((!obj.value) ? "" : obj.value.toString()),
             newValue = parseFloat("" + oldValue + newStr.toString()),
             price = parseFloat(obj.parentNode.parentNode.getAttribute("data-price").replace(/\s+/g, "")),
-            diff = parseFloat("" + oldValue + newStr.toString()) - parseFloat(oldValue),
+            diff = parseFloat("" + oldValue + newStr.toString()) - (!isNaN(parseFloat(oldValue)) ? parseFloat(oldValue) : 0),
             sum = calculateSum(obj.getAttribute("data-adcid"));
 
         if ((!(code >= 48 && code <= 57))

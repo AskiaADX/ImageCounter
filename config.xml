@@ -7,7 +7,7 @@
     <info>
         <name>Image Counter</name>
         <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <date>2015-07-03</date>
         <description>
             <![CDATA[
@@ -279,6 +279,27 @@
                 <options>
                     <option value="normal" text="Normal"/>
                     <option value="bold" text="Bold"/>
+                </options>
+            </property>
+            <property xsi:type="standardProperty" id="numberDigitsPrice" name="Number of digits" type="string" mode="static">
+                <description>
+                    <![CDATA[Show the price]]>
+                </description>
+                <value>2</value>
+                <options>
+                    <option value="0" text="0"/>
+                    <option value="1" text="1"/>
+                    <option value="2" text="2"/>
+                </options>
+            </property>
+            <property xsi:type="standardProperty" id="showPrice" name="Show Price" type="string" mode="static">
+                <description>
+                    <![CDATA[Show the price]]>
+                </description>
+                <value>yes</value>
+                <options>
+                    <option value="yes" text="Yes"/>
+                    <option value="no" text="No"/>
                 </options>
             </property>
         </category>

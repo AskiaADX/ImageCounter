@@ -91,6 +91,7 @@ html {
 
 .adc-imageCounter .counter span {
     padding: 6px;
+    border-radius: inherit;
 }
 
 .adc-imageCounter .imgZoom {

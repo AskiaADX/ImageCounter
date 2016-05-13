@@ -249,6 +249,17 @@
 
                     base.removeImageElement();
                 });
+                base.addEvent(document.getElementById("simplbox-overlay"), "touchstart click", function (event) {
+                    if (event.preventDefault) {
+                        event.preventDefault();
+                    }
+
+                    if (window.event) {
+                        window.event.returnValue = FALSE;
+                    }
+
+                    base.removeImageElement();
+                });
             }
 
             // Touch events.

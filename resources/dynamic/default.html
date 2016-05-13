@@ -41,6 +41,7 @@ Dim exclNb =CurrentADC.PropValue("exclNb")
 Dim minusplusPosition =CurrentADC.PropValue("minusplusPosition")
 Dim totalShowRemaining =CurrentADC.PropValue("totalShowRemaining")
 Dim spendingLimit =CurrentADC.PropValue("spendingLimit")
+Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
 
 %}
 <div class="adc-imageCounter_controlContainer">
@@ -56,7 +57,7 @@ Dim spendingLimit =CurrentADC.PropValue("spendingLimit")
             {% EndIf %}
         </div>
     </div>
-    <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-imageCounter" data-maxspent="{%= spendingLimit %}" data-isremain="{%= totalShowRemaining %}">
+    <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-imageCounter" data-maxspent="{%= spendingLimit %}" data-isremain="{%= totalShowRemaining %}" data-digits="{%= numberDigitsPrice %}">
         {%
         For i = 1 To (ar.Count - exclNb.ToNumber())
             inputName = CurrentQuestion.iteration(ar[i].Index).InputName()
