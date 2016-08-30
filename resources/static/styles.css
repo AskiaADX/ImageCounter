@@ -45,7 +45,7 @@ html {
 }
 
 .adc-imageCounter .responseItem {
-    float: left;
+    /*float: left;*/
     position: relative;
 }
 

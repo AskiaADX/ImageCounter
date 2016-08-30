@@ -162,6 +162,7 @@
         border: {%= borderThickness %} {%= borderStyle %} rgb({%= borderColour %});
     {% EndIf %}
     margin: {%= responseMargin %};
+    display: inline-block;
 }
 
 #adc_{%= CurrentADC.InstanceId %} .responseItem,
