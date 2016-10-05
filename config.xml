@@ -7,21 +7,13 @@
   <info>
     <name>Image Counter</name>
     <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <date>2015-07-03</date>
-    <description><![CDATA[
-            
-                Show pictures with prices.
+    <description><![CDATA[Show pictures with prices.
                 Increase/decrease the number of units and show the total spent/remaining.
-                Zoom option to show the pictures using a lightbox.
-            
-        ]]></description>
+                Zoom option to show the pictures using a lightbox.]]></description>
     <company>Askia</company>
-    <author><![CDATA[
-            
-                Jerome Duparc <jeromed@askia.com>
-            
-        ]]></author>
+    <author><![CDATA[Jerome Duparc <jeromed@askia.com>]]></author>
     <site>http://www.askia.com</site>
     <helpURL>http://support.askia.com</helpURL>
     <categories>
@@ -29,8 +21,9 @@
     </categories>
     <style width="0" height="0" />
     <constraints>
-      <constraint on="questions" numeric="true" requireParentLoop="true" />
-      <constraint on="controls" responseblock="true" />
+      <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" />
+      <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="false" />
+      <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>
   <outputs defaultOutput="fallback">
@@ -580,11 +573,9 @@
                 ]]></description>
         <value></value>
       </property>
-      <property xsi:type="standardProperty" id="displayZoomLoop" name="Display Zoom" type="string" mode="static">
-        <description><![CDATA[
-                    Show or hide zoom loop
-                ]]></description>
-        <value><![CDATA[block]]></value>
+      <property xsi:type="standardProperty" id="displayZoomLoop" name="Display Zoom" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Show or hide zoom loop]]></description>
+        <value><![CDATA[none]]></value>
         <options>
           <option value="block" text="Yes" />
           <option value="none" text="No" />

@@ -46,14 +46,14 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
 %}
 <div class="adc-imageCounter_controlContainer">
     <div id="adc_{%= CurrentADC.InstanceId %}_total">
-        <div class="totalLabel">{%= totalCaption %}</div>
+        <div class="totalLabel">{%:= totalCaption %}</div>
         <div class="total">
             {% If (currencyAlign = "left") Then %}
-            <span class="totalCurrency">{%= totalCurrency %}</span>
+            <span class="totalCurrency">{%:= totalCurrency %}</span>
             <span id="adc_{%= CurrentADC.InstanceId %}_totalValue">0.00</span>
             {% Else %}
             <span id="adc_{%= CurrentADC.InstanceId %}_totalValue">0.00</span>
-            <span class="totalCurrency">{%= totalCurrency %}</span>
+            <span class="totalCurrency">{%:= totalCurrency %}</span>
             {% EndIf %}
         </div>
     </div>
@@ -102,27 +102,27 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
                         If ((j = pricePosition.ToNumber()) and ((j mod 2) = 0)) Then %}
                             <div class="responseTextOdd price">
                                 {% If (currencyAlign = "left") Then %}
-                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceCurrency">{%:= responseCurrency %}</span>
                                 <span class="priceValue">{%= price %}</span>
                                 {% Else %}
                                 <span class="priceValue">{%= price %}</span>
-                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceCurrency">{%:= responseCurrency %}</span>
                                 {% EndIf %}
                             </div>
                         {% ElseIf ((j = pricePosition.ToNumber()) and ((j mod 2) <> 0)) Then %}
                             <div class="responseTextEven price">
                                 {% If (currencyAlign = "left") Then %}
-                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceCurrency">{%:= responseCurrency %}</span>
                                 <span class="priceValue">{%= price %}</span>
                                 {% Else %}
                                 <span class="priceValue">{%= price %}</span>
-                                <span class="priceCurrency">{%= responseCurrency %}</span>
+                                <span class="priceCurrency">{%:= responseCurrency %}</span>
                                 {% EndIf %}
                             </div>
                         {% ElseIf ((j <> pricePosition.ToNumber()) and ((j mod 2) = 0)) Then %}
-                            <div class="responseTextOdd">{%= productDescription[j] %}</div>
+                            <div class="responseTextOdd">{%:= productDescription[j] %}</div>
                         {% Else %}
-                            <div class="responseTextEven">{%= productDescription[j] %}</div>
+                            <div class="responseTextEven">{%:= productDescription[j] %}</div>
                         {% EndIf
                     Next j
                     %}
@@ -161,7 +161,7 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
         %}
         <div class="exclusiveItemWrapper" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
             <div class="{%= clsExcl %}" unselectable="on" onselectstart="return false;">
-                <span class="exclusiveText">{%= caption%}</span>
+                <span class="exclusiveText">{%:= caption%}</span>
                 <input type="number" id="{%= inputName%}" name="{%= inputName%}" value="" min="0" max="1" step="1" />
             </div>
         </div>
