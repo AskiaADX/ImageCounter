@@ -54,6 +54,11 @@ html {
     font-size: 13px;
 }
 
+.adc-imageCounter input[type=number] {
+    min-width: 35px;
+    padding: 5px;
+}
+
 .adc-imageCounter .imgZoom:hover {
     border: 1px solid transparent;
 }

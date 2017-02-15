@@ -145,6 +145,11 @@
 #adc_{%= CurrentADC.InstanceId %} .responseItem,
 #adc_{%= CurrentADC.InstanceId %} .counter,
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper {
+    box-shadow: none;
+    transition: box-shadow ease-in .15s, background ease-in .15s;
+}
+#adc_{%= CurrentADC.InstanceId %} .responseItem:hover,
+#adc_{%= CurrentADC.InstanceId %} .exclusiveItemWrapper:hover {
     box-shadow: {%= dropShadow %};
 }
 
@@ -194,13 +199,6 @@
     color: {%= fontColourCounter.ToHexa() %};
     font-size: {%= fontSizeCounter %};
     background-color: {%= counterColourPrimary.ToHexa() %};
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= counterColourPrimary %})), to(rgb({%= counterColourSecondary %})));
-    background-image: -webkit-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
-    background-image: -moz-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
-    background-image: -o-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
-    background-image: -ms-linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
-    background-image: linear-gradient(top, rgb({%= counterColourPrimary %}), rgb({%= counterColourSecondary %}));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= counterColourPrimary.ToHexa() %}', EndColorStr='{%= counterColourSecondary.ToHexa() %}');
     {% If (counterBorderThickness = "none") Then %}
         border: none;
     {% Else %}
@@ -228,13 +226,6 @@
 #adc_{%= CurrentADC.InstanceId %} .Minus {
     color: {%= minusFontColour.ToHexa() %};
     background-color: {%= minusColourPrimary.ToHexa() %};
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= minusColourPrimary %})), to(rgb({%= minusColourSecondary %})));
-    background-image: -webkit-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
-    background-image: -moz-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
-    background-image: -o-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
-    background-image: -ms-linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
-    background-image: linear-gradient(top, rgb({%= minusColourPrimary %}), rgb({%= minusColourSecondary %}));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= minusColourPrimary.ToHexa() %}', EndColorStr='{%= minusColourSecondary.ToHexa() %}');
     {% If (minusBorderThickness = "none") Then %}
         border: none;
     {% Else %}
@@ -245,13 +236,6 @@
 #adc_{%= CurrentADC.InstanceId %} .Plus {
       color: {%= plusFontColour.ToHexa() %};
       background-color: {%= plusColourPrimary.ToHexa() %};
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= plusColourPrimary %})), to(rgb({%= plusColourSecondary %})));
-      background-image: -webkit-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
-      background-image: -moz-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
-      background-image: -o-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
-      background-image: -ms-linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
-      background-image: linear-gradient(top, rgb({%= plusColourPrimary %}), rgb({%= plusColourSecondary %}));
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= plusColourPrimary.ToHexa() %}', EndColorStr='{%= plusColourSecondary.ToHexa() %}');
       {% If (plusBorderThickness = "none") Then %}
         border: none;
       {% Else %}
@@ -261,36 +245,15 @@
 
 #adc_{%= CurrentADC.InstanceId %} .stateOff {
       background-color: {%= imageColourPrimary.ToHexa() %};
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= imageColourPrimary %})), to(rgb({%= imageColourSecondary %})));
-      background-image: -webkit-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
-      background-image: -moz-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
-      background-image: -o-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
-      background-image: -ms-linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
-      background-image: linear-gradient(top, rgb({%= imageColourPrimary %}), rgb({%= imageColourSecondary %}));
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= imageColourPrimary.ToHexa() %}', EndColorStr='{%= imageColourSecondary.ToHexa() %}');
       transition: all ease-in-out .2s;
 }
 
 #adc_{%= CurrentADC.InstanceId %} .stateHover {
       background-color: {%= hoverImageColourPrimary.ToHexa() %};
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= hoverImageColourPrimary %})), to(rgb({%= hoverImageColourSecondary %})));
-      background-image: -webkit-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
-      background-image: -moz-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
-      background-image: -o-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
-      background-image: -ms-linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
-      background-image: linear-gradient(top, rgb({%= hoverImageColourPrimary %}), rgb({%= hoverImageColourSecondary %}));
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= hoverImageColourPrimary.ToHexa() %}', EndColorStr='{%= hoverImageColourSecondary.ToHexa() %}');
 }
 
 #adc_{%= CurrentADC.InstanceId %} .stateOn {
       background-color: {%= selectedImageColourPrimary.ToHexa() %};
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= selectedImageColourPrimary %})), to(rgb({%= selectedImageColourSecondary %})));
-      background-image: -webkit-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
-      background-image: -moz-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
-      background-image: -o-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
-      background-image: -ms-linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
-      background-image: linear-gradient(top, rgb({%= selectedImageColourPrimary %}), rgb({%= selectedImageColourSecondary %}));
-      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= selectedImageColourPrimary.ToHexa() %}', EndColorStr='{%= selectedImageColourSecondary.ToHexa() %}');
 }
 
 #adc_{%= CurrentADC.InstanceId %}_total {
@@ -376,13 +339,6 @@
 
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItem {
   background-color: {%= exclColourPrimary.ToHexa() %};
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= exclColourPrimary %})), to(rgb({%= exclColourSecondary %})));
-  background-image: -webkit-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
-  background-image: -moz-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
-  background-image: -o-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
-  background-image: -ms-linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
-  background-image: linear-gradient(top, rgb({%= exclColourPrimary %}), rgb({%= exclColourSecondary %}));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= exclColourPrimary.ToHexa() %}', EndColorStr='{%= exclColourSecondary.ToHexa() %}');
   {% If (exclBorderThickness = "none") Then %}
     border: none;
   {% Else %}
@@ -397,13 +353,6 @@
 
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItem:hover {
   background-color: {%= hoverExclColourPrimary.ToHexa() %};
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= hoverExclColourPrimary %})), to(rgb({%= hoverExclColourSecondary %})));
-  background-image: -webkit-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
-  background-image: -moz-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
-  background-image: -o-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
-  background-image: -ms-linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
-  background-image: linear-gradient(top, rgb({%= hoverExclColourPrimary %}), rgb({%= hoverExclColourSecondary %}));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= hoverExclColourPrimary.ToHexa() %}', EndColorStr='{%= hoverExclColourSecondary.ToHexa() %}');
   {% If (hoverExclBorderThickness = "none") Then %}
     border: none;
   {% Else %}
@@ -417,13 +366,6 @@
 
 #adc_{%= CurrentADC.InstanceId %} .exclusiveItemSelected {
   background-color: {%= selectedExclColourPrimary.ToHexa() %};
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb({%= selectedExclColourPrimary %})), to(rgb({%= selectedExclColourSecondary %})));
-  background-image: -webkit-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
-  background-image: -moz-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
-  background-image: -o-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
-  background-image: -ms-linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
-  background-image: linear-gradient(top, rgb({%= selectedExclColourPrimary %}), rgb({%= selectedExclColourSecondary %}));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='{%= selectedExclColourPrimary.ToHexa() %}', EndColorStr='{%= selectedExclColourSecondary.ToHexa() %}');
   {% If (selectedExclBorderThickness = "none") Then %}
     border: none;
   {% Else %}

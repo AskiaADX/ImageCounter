@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<control  xmlns="http://www.askia.com/ADCSchema"
+<control  xmlns="http://www.askia.com/2.1.0/ADCSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.askia.com/ADCSchema http://www.askia.com/Downloads/dev/schemas/adc2.0/Config.xsd"
-          version="2.0.0"
-          askiaCompat="5.3.3">
+          xsi:schemaLocation="http://www.askia.com/2.1.0/ADCSchema https://raw.githubusercontent.com/AskiaADX/ADXSchema/2.1.0/ADCSchema.xsd"
+          version="2.1.0"
+          askiaCompat="5.4.2">
   <info>
-    <name>Image Counter</name>
+    <name>ImageCounter</name>
     <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-    <version>1.0.3</version>
+    <version>2.0.0</version>
     <date>2015-07-03</date>
     <description><![CDATA[Show pictures with prices.
                 Increase/decrease the number of units and show the total spent/remaining.
@@ -19,7 +19,6 @@
     <categories>
       <category>General</category>
     </categories>
-    <style width="0" height="0" />
     <constraints>
       <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" />
       <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="false" />
@@ -93,48 +92,28 @@
           <option value="right" text="Right" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="fontSize" name="Font Size" type="string" mode="static">
-        <description><![CDATA[
-                    The font size for the responses
-                ]]></description>
-        <value><![CDATA[16px]]></value>
+      <property xsi:type="standardProperty" id="fontSize" name="Font Size" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the responses]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="fontColour" name="Response Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="fontColour" name="Response Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the responses]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="backgroundColour" name="Response Background Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The background colour for the responses
-                ]]></description>
-        <value><![CDATA[232,232,232]]></value>
+      <property xsi:type="standardProperty" id="backgroundColour" name="Response Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The background colour for the responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderColour" name="Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="borderColour" name="Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour around the responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderThickness" name="Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the responses
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
+      <property xsi:type="standardProperty" id="borderThickness" name="Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the responses]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderStyle" name="Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the responses
-                ]]></description>
+      <property xsi:type="standardProperty" id="borderStyle" name="Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the responses]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -144,42 +123,24 @@
           <option value="double" text="Double" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="fontColourAlternate" name="Alternate Response Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the alternate rows of the responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="fontColourAlternate" name="Alternate Response Font Colour" type="color" mode="static" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the alternate rows of the responses]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="backgroundColourAlternate" name="Alternate Response Background Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The background colour for the alternate rows of the responses
-                ]]></description>
-        <value><![CDATA[243,243,243]]></value>
+      <property xsi:type="standardProperty" id="backgroundColourAlternate" name="Alternate Response Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The background colour for the alternate rows of the responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderColourAlternate" name="Alternate Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour for the alternate rows around the responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="borderColourAlternate" name="Alternate Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour for the alternate rows around the responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderThicknessAlternate" name="Alternate Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border for the alternate rows around the responses
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
+      <property xsi:type="standardProperty" id="borderThicknessAlternate" name="Alternate Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border for the alternate rows around the responses]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderStyleAlternate" name="Alternate Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border for the alternate rows around the responses
-                ]]></description>
+      <property xsi:type="standardProperty" id="borderStyleAlternate" name="Alternate Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border for the alternate rows around the responses]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -189,10 +150,8 @@
           <option value="double" text="Double" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="captionRowsMinHeight" name="Caption Rows Min Height" type="string" mode="static">
-        <description><![CDATA[
-                    Set the min height of the caption rows
-                ]]></description>
+      <property xsi:type="standardProperty" id="captionRowsMinHeight" name="Caption Rows Min Height" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Set the min height of the caption rows]]></description>
         <value></value>
       </property>
       <property xsi:type="standardProperty" id="responseMaxWidth" name="Response Max Width" type="string" mode="static">
@@ -201,25 +160,13 @@
                 ]]></description>
         <value><![CDATA[120px]]></value>
       </property>
-      <property xsi:type="standardProperty" id="responseMargin" name="Response Margin" type="string" mode="static">
-        <description><![CDATA[
-                    When set this will define the margin/space between responses
-                ]]></description>
+      <property xsi:type="standardProperty" id="responseMargin" name="Response Margin" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[When set this will define the margin/space between responses]]></description>
         <value><![CDATA[3px]]></value>
       </property>
-      <property xsi:type="standardProperty" id="borderRadius" name="Border Radius" type="string" mode="static">
-        <description><![CDATA[
-                    The amount of curve on the response corners
-                ]]></description>
-        <value><![CDATA[2px]]></value>
-        <options>
-          <option value="0px" text="0" />
-          <option value="2px" text="2" />
-          <option value="5px" text="5" />
-          <option value="10px" text="10" />
-          <option value="15px" text="15" />
-          <option value="20px" text="20" />
-        </options>
+      <property xsi:type="standardProperty" id="borderRadius" name="Border Radius" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The amount of curve on the response corners]]></description>
+        <value><![CDATA[{%= Theme.BorderRadius %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="displayResponseText" name="Display Response Text" type="string" mode="static">
         <description><![CDATA[
@@ -231,19 +178,15 @@
           <option value="none" text="No" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="responseTextPadding" name="Response Text Padding" type="string" mode="static">
-        <description><![CDATA[
-                    Padding of the response text
-                ]]></description>
-        <value><![CDATA[2px 0]]></value>
+      <property xsi:type="standardProperty" id="responseTextPadding" name="Response Text Padding" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Padding of the response text]]></description>
+        <value><![CDATA[0.5em 0]]></value>
       </property>
-      <property xsi:type="standardProperty" id="dropShadow" name="Drop Shadow" type="string" mode="static">
-        <description><![CDATA[
-                    The visibility of a drop shadow under the responses
-                ]]></description>
-        <value><![CDATA[1px 1px 2px 0 #999]]></value>
+      <property xsi:type="standardProperty" id="dropShadow" name="Drop Shadow" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The visibility of a drop shadow under the responses]]></description>
+        <value><![CDATA[0px 2px 4px rgba(0,0,0,.2)]]></value>
         <options>
-          <option value="1px 1px 2px 0 #999" text="On" />
+          <option value="0px 2px 4px rgba(0,0,0,.2)" text="On" />
           <option value="none" text="Off" />
         </options>
       </property>
@@ -255,26 +198,20 @@
                 ]]></description>
         <value><![CDATA[1]]></value>
       </property>
-      <property xsi:type="standardProperty" id="fontColourPrice" name="Price Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the price
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="fontColourPrice" name="Price Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the price]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="fontWeightPrice" name="Price Font Weight" type="string" mode="static">
-        <description><![CDATA[
-                    The font weight for the price
-                ]]></description>
+      <property xsi:type="standardProperty" id="fontWeightPrice" name="Price Font Weight" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The font weight for the price]]></description>
         <value><![CDATA[bold]]></value>
         <options>
           <option value="normal" text="Normal" />
           <option value="bold" text="Bold" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="numberDigitsPrice" name="Number of digits" type="string" mode="static">
-        <description><![CDATA[
-                    Show the price
-                ]]></description>
+      <property xsi:type="standardProperty" id="numberDigitsPrice" name="Number of digits" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[Show the price]]></description>
         <value><![CDATA[2]]></value>
         <options>
           <option value="0" text="0" />
@@ -324,54 +261,28 @@
       </property>
     </category>
     <category id="counter" name="Counter">
-      <property xsi:type="standardProperty" id="fontSizeCounter" name="Counter Font Size" type="string" mode="static">
-        <description><![CDATA[
-                    The font size for the counter
-                ]]></description>
-        <value><![CDATA[16px]]></value>
+      <property xsi:type="standardProperty" id="fontSizeCounter" name="Counter Font Size" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the counter]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="fontColourCounter" name="Counter Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the control
-                ]]></description>
-        <value><![CDATA[255,255,255]]></value>
+      <property xsi:type="standardProperty" id="fontColourCounter" name="Counter Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the control]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="counterColourPrimary" name="Counter Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the counter
-                ]]></description>
-        <value><![CDATA[252,170,56]]></value>
+      <property xsi:type="standardProperty" id="counterColourPrimary" name="Counter Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the counter]]></description>
+        <value><![CDATA[{%= Theme.SecondaryColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="counterColourSecondary" name="Counter Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the counter
-                ]]></description>
-        <value><![CDATA[227,100,0]]></value>
+      <property xsi:type="standardProperty" id="counterBorderColour" name="Counter Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour around the counter]]></description>
+        <value><![CDATA[{%= Theme.SecondaryDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="counterBorderColour" name="Counter Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the counter
-                ]]></description>
-        <value><![CDATA[227,100,0]]></value>
+      <property xsi:type="standardProperty" id="counterBorderThickness" name="Counter Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the counter]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="counterBorderThickness" name="Counter Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the counter
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="counterBorderStyle" name="Counter Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the counter
-                ]]></description>
+      <property xsi:type="standardProperty" id="counterBorderStyle" name="Counter Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the counter]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -383,90 +294,48 @@
       </property>
     </category>
     <category id="minusplus" name="Minus Plus">
-      <property xsi:type="standardProperty" id="minusplusPosition" name="Minus Plus Position" type="string" mode="static">
-        <description><![CDATA[
-                    The position of the minus/plus buttons
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusplusPosition" name="Minus Plus Position" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The position of the minus/plus buttons]]></description>
         <value><![CDATA[minusplus]]></value>
         <options>
           <option value="minusplus" text="Minus - Plus" />
           <option value="plusminus" text="Plus - Minus" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="minusplusWidth" name="Minus Plus Width" type="string" mode="static">
-        <description><![CDATA[
-                    The width of the minus/plus buttons
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusplusWidth" name="Minus Plus Width" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The width of the minus/plus buttons]]></description>
         <value><![CDATA[25px]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusplusHeight" name="Minus Plus Height" type="string" mode="static">
-        <description><![CDATA[
-                    The height of the minus/plus buttons
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusplusHeight" name="Minus Plus Height" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The height of the minus/plus buttons]]></description>
         <value><![CDATA[25px]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusplusFontSize" name="Minus Plus Font Size" type="string" mode="static">
-        <description><![CDATA[
-                    The font size for the minus/plus buttons
-                ]]></description>
-        <value><![CDATA[18px]]></value>
+      <property xsi:type="standardProperty" id="minusplusFontSize" name="Minus Plus Font Size" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the minus/plus buttons]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusplusBorderRadius" name="Minus Plus Border Radius" type="string" mode="static">
-        <description><![CDATA[
-                    The amount of curve on the minus/plus buttons corners
-                ]]></description>
-        <value><![CDATA[2px]]></value>
-        <options>
-          <option value="0px" text="0" />
-          <option value="2px" text="2" />
-          <option value="5px" text="5" />
-          <option value="10px" text="10" />
-          <option value="15px" text="15" />
-          <option value="20px" text="20" />
-        </options>
+      <property xsi:type="standardProperty" id="minusplusBorderRadius" name="Minus Plus Border Radius" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The amount of curve on the minus/plus buttons corners]]></description>
+        <value><![CDATA[{%= Theme.BorderRadius %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusFontColour" name="Minus Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the minus button
-                ]]></description>
-        <value><![CDATA[255,255,255]]></value>
+      <property xsi:type="standardProperty" id="minusFontColour" name="Minus Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the minus button]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusColourPrimary" name="Minus Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the minus button
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusColourPrimary" name="Minus Background Colour" type="color" mode="dynamic" require="false" visible="true" colorFormat="rgb">
+        <description><![CDATA[Background colour of the minus button]]></description>
         <value><![CDATA[232,33,0]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusColourSecondary" name="Minus Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the minus button
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusBorderColour" name="Minus Border Colour" type="color" mode="dynamic" require="false" visible="true" colorFormat="rgb">
+        <description><![CDATA[The border colour around the minus button]]></description>
         <value><![CDATA[170,21,0]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusBorderColour" name="Minus Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the minus button
-                ]]></description>
-        <value><![CDATA[170,21,0]]></value>
+      <property xsi:type="standardProperty" id="minusBorderThickness" name="Minus Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the minus button]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="minusBorderThickness" name="Minus Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the minus button
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="minusBorderStyle" name="Minus Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the minus button
-                ]]></description>
+      <property xsi:type="standardProperty" id="minusBorderStyle" name="Minus Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the minus button]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -476,48 +345,24 @@
           <option value="double" text="Double" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="plusFontColour" name="Plus Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the plus button
-                ]]></description>
-        <value><![CDATA[255,255,255]]></value>
+      <property xsi:type="standardProperty" id="plusFontColour" name="Plus Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the plus button]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="plusColourPrimary" name="Plus Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the plus button
-                ]]></description>
-        <value><![CDATA[0,199,9]]></value>
+      <property xsi:type="standardProperty" id="plusColourPrimary" name="Plus Background Colour" type="color" mode="static" require="false" visible="true" colorFormat="rgb">
+        <description><![CDATA[Background colour of the plus button]]></description>
+        <value><![CDATA[0,171,7]]></value>
       </property>
-      <property xsi:type="standardProperty" id="plusColourSecondary" name="Plus Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the plus button
-                ]]></description>
+      <property xsi:type="standardProperty" id="plusBorderColour" name="Plus Border Colour" type="color" mode="dynamic" require="false" visible="true" colorFormat="rgb">
+        <description><![CDATA[The border colour around the plus button]]></description>
         <value><![CDATA[0,148,4]]></value>
       </property>
-      <property xsi:type="standardProperty" id="plusBorderColour" name="Plus Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the plus button
-                ]]></description>
-        <value><![CDATA[0,148,4]]></value>
+      <property xsi:type="standardProperty" id="plusBorderThickness" name="Plus Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the plus button]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="plusBorderThickness" name="Plus Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the plus button
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="plusBorderStyle" name="Plus Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the plus button
-                ]]></description>
+      <property xsi:type="standardProperty" id="plusBorderStyle" name="Plus Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the plus button]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -529,41 +374,17 @@
       </property>
     </category>
     <category id="images" name="Images">
-      <property xsi:type="standardProperty" id="imageColourPrimary" name="Image Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the images
-                ]]></description>
-        <value><![CDATA[255,255,255]]></value>
+      <property xsi:type="standardProperty" id="imageColourPrimary" name="Image Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the images]]></description>
+        <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="imageColourSecondary" name="Image Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the images
-                ]]></description>
-        <value><![CDATA[255,255,255]]></value>
+      <property xsi:type="standardProperty" id="hoverImageColourPrimary" name="Hover Image Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the images when hovered over]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="hoverImageColourPrimary" name="Hover Image Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the images when hovered over
-                ]]></description>
-        <value><![CDATA[243,243,243]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="hoverImageColourSecondary" name="Hover Image Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the images when hovered over
-                ]]></description>
-        <value><![CDATA[243,243,243]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="selectedImageColourPrimary" name="Selected Image Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the selected images
-                ]]></description>
-        <value><![CDATA[221,239,255]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="selectedImageColourSecondary" name="Selected Image Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the selected images
-                ]]></description>
-        <value><![CDATA[211,229,244]]></value>
+      <property xsi:type="standardProperty" id="selectedImageColourPrimary" name="Selected Image Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the selected images]]></description>
+        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
       </property>
     </category>
     <category id="zoom" name="Zoom">
@@ -632,53 +453,37 @@
           <option value="right" text="Right" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="totalMarginTop" name="Total Margin Top" type="string" mode="static">
-        <description><![CDATA[
-                    The margin top of the total container
-                ]]></description>
-        <value><![CDATA[5px]]></value>
+      <property xsi:type="standardProperty" id="totalMarginTop" name="Total Margin Top" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The margin top of the total container]]></description>
+        <value><![CDATA[{%= Theme.VPadding %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalMarginBottom" name="Total Margin Bottom" type="string" mode="static">
-        <description><![CDATA[
-                    The margin bottom of the total container
-                ]]></description>
-        <value><![CDATA[25px]]></value>
+      <property xsi:type="standardProperty" id="totalMarginBottom" name="Total Margin Bottom" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The margin bottom of the total container]]></description>
+        <value><![CDATA[{%= Theme.VPadding %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalFontSizeCaption" name="Total Font Size Caption" type="string" mode="static">
-        <description><![CDATA[
-                    The font size for the total caption
-                ]]></description>
-        <value><![CDATA[18px]]></value>
+      <property xsi:type="standardProperty" id="totalFontSizeCaption" name="Total Font Size Caption" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the total caption]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalFontColourCaption" name="Total Font Colour Caption" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the total caption
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="totalFontColourCaption" name="Total Font Colour Caption" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the total caption]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalPaddingCaption" name="Total Padding Caption" type="string" mode="static">
-        <description><![CDATA[
-                    The padding for the total caption
-                ]]></description>
-        <value><![CDATA[2px]]></value>
+      <property xsi:type="standardProperty" id="totalPaddingCaption" name="Total Padding Caption" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The padding for the total caption]]></description>
+        <value><![CDATA[0.5em]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalFontSizeSum" name="Total Font Size Sum" type="string" mode="static">
-        <description><![CDATA[
-                    The font size for the total sum
-                ]]></description>
-        <value><![CDATA[22px]]></value>
+      <property xsi:type="standardProperty" id="totalFontSizeSum" name="Total Font Size Sum" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size for the total sum]]></description>
+        <value><![CDATA[{%= Theme.LargeFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalFontColourSum" name="Total Font Colour Sum" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the total sum
-                ]]></description>
-        <value><![CDATA[195,254,254]]></value>
+      <property xsi:type="standardProperty" id="totalFontColourSum" name="Total Font Colour Sum" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the total sum]]></description>
+        <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="totalBackgroundColour" name="Total Background Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The background colour for the total container
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="totalBackgroundColour" name="Total Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The background colour for the total container]]></description>
+        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
       </property>
     </category>
     <category id="exclusiveResponses" name="Exclusives Responses">
@@ -705,72 +510,40 @@
           <option value="right" text="Right" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="exclMarginTop" name="Excl Margin Top" type="string" mode="static">
-        <description><![CDATA[
-                    The margin top of the exclusives responses
-                ]]></description>
-        <value><![CDATA[10px]]></value>
+      <property xsi:type="standardProperty" id="exclMarginTop" name="Excl Margin Top" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The margin top of the exclusives responses]]></description>
+        <value><![CDATA[1.0em]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclMarginBottom" name="Excl Margin Bottom" type="string" mode="static">
-        <description><![CDATA[
-                    The margin bottom of the exclusives responses
-                ]]></description>
-        <value><![CDATA[3px]]></value>
+      <property xsi:type="standardProperty" id="exclMarginBottom" name="Excl Margin Bottom" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The margin bottom of the exclusives responses]]></description>
+        <value><![CDATA[0.5em]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclPadding" name="Excl Padding" type="string" mode="static">
-        <description><![CDATA[
-                    The padding of the exclusives responses
-                ]]></description>
-        <value><![CDATA[7px 0]]></value>
+      <property xsi:type="standardProperty" id="exclPadding" name="Excl Padding" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The padding of the exclusives responses]]></description>
+        <value><![CDATA[0.5em 0]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclFontSize" name="Excl Font Size" type="string" mode="static">
-        <description><![CDATA[
-                    The font size of the exclusives responses
-                ]]></description>
-        <value><![CDATA[16px]]></value>
+      <property xsi:type="standardProperty" id="exclFontSize" name="Excl Font Size" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The font size of the exclusives responses]]></description>
+        <value><![CDATA[{%= Theme.NormalFS %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="fontColourExcl" name="Excl Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the exclusives responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="fontColourExcl" name="Excl Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the exclusives responses]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclColourPrimary" name="Excl Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the exclusives responses
-                ]]></description>
-        <value><![CDATA[232,232,232]]></value>
+      <property xsi:type="standardProperty" id="exclColourPrimary" name="Excl Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the exclusives responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclColourSecondary" name="Excl Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the exclusives responses
-                ]]></description>
-        <value><![CDATA[232,232,232]]></value>
+      <property xsi:type="standardProperty" id="exclBorderColour" name="Excl Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour around the exclusives responses]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclBorderColour" name="Excl Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the exclusives responses
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="exclBorderThickness" name="Excl Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the exclusives responses]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="exclBorderThickness" name="Excl Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the exclusives responses
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="exclBorderStyle" name="Excl Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the exclusives responses
-                ]]></description>
+      <property xsi:type="standardProperty" id="exclBorderStyle" name="Excl Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the exclusives responses]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -780,48 +553,24 @@
           <option value="double" text="Double" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="hoverFontColourExcl" name="Hover Excl Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the exclusives responses when hovered over
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="hoverFontColourExcl" name="Hover Excl Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the exclusives responses when hovered over]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="hoverExclColourPrimary" name="Hover Excl Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the exclusives responses when hovered over
-                ]]></description>
-        <value><![CDATA[243,243,243]]></value>
+      <property xsi:type="standardProperty" id="hoverExclColourPrimary" name="Hover Excl Colour Primary" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Primary colour of the exclusives responses when hovered over]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="hoverExclColourSecondary" name="Hover Excl Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the exclusives responses when hovered over
-                ]]></description>
-        <value><![CDATA[243,243,243]]></value>
+      <property xsi:type="standardProperty" id="hoverExclBorderColour" name="Hover Excl Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour around the exclusives responses when hovered over]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="hoverExclBorderColour" name="Hover Excl Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the exclusives responses when hovered over
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="hoverExclBorderThickness" name="Hover Excl Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the exclusives responses when hovered over]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="hoverExclBorderThickness" name="Hover Excl Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the exclusives responses when hovered over
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="hoverExclBorderStyle" name="Hover Excl Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the exclusives responses when hovered over
-                ]]></description>
+      <property xsi:type="standardProperty" id="hoverExclBorderStyle" name="Hover Excl Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the exclusives responses when hovered over]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
@@ -831,48 +580,24 @@
           <option value="double" text="Double" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="selectedFontColourExcl" name="Selected Excl Font Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The font colour for the exclusives responses selected
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="selectedFontColourExcl" name="Selected Excl Font Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The font colour for the exclusives responses selected]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="selectedExclColourPrimary" name="Selected Excl Colour Primary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Primary colour of the exclusives responses selected
-                ]]></description>
-        <value><![CDATA[221,239,255]]></value>
+      <property xsi:type="standardProperty" id="selectedExclColourPrimary" name="Selected Excl Background Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the exclusives responses selected]]></description>
+        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="selectedExclColourSecondary" name="Selected Excl Colour Secondary" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    Secondary colour of the exclusives responses selected
-                ]]></description>
-        <value><![CDATA[211,229,244]]></value>
+      <property xsi:type="standardProperty" id="selectedExclBorderColour" name="Selected Excl Border Colour" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgb">
+        <description><![CDATA[The border colour around the exclusives responses selected]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="selectedExclBorderColour" name="Selected Excl Border Colour" type="color" mode="static" colorFormat="rgb">
-        <description><![CDATA[
-                    The border colour around the exclusives responses selected
-                ]]></description>
-        <value><![CDATA[68,68,68]]></value>
+      <property xsi:type="standardProperty" id="selectedExclBorderThickness" name="Selected Excl Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border around the exclusives responses selected]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="selectedExclBorderThickness" name="Selected Excl Border Thickness" type="string" mode="static">
-        <description><![CDATA[
-                    The thickness of the border around the exclusives responses selected
-                ]]></description>
-        <value><![CDATA[1px]]></value>
-        <options>
-          <option value="none" text="None" />
-          <option value="1px" text="1px" />
-          <option value="2px" text="2px" />
-          <option value="3px" text="3px" />
-          <option value="4px" text="4px" />
-          <option value="5px" text="5px" />
-        </options>
-      </property>
-      <property xsi:type="standardProperty" id="selectedExclBorderStyle" name="Selected Excl Border Style" type="string" mode="static">
-        <description><![CDATA[
-                    The style of the border around the exclusives responses selected
-                ]]></description>
+      <property xsi:type="standardProperty" id="selectedExclBorderStyle" name="Selected Excl Border Style" type="string" mode="static" require="true" visible="false">
+        <description><![CDATA[The style of the border around the exclusives responses selected]]></description>
         <value><![CDATA[solid]]></value>
         <options>
           <option value="none" text="None" />
