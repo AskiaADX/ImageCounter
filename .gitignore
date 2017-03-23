@@ -8,7 +8,26 @@
 ehthumbs.db
 Thumbs.db
 .com.apple.timemachine.supported
-.idea
-.adxstudio
+.DocumentRevisions-V100
 .settings
 pxm
+
+# NodeJS #
+##########
+/node_modules
+
+# Task runners #
+################
+gulpfile.js
+gruntfile.js
+
+# IDE #
+################
+.idea
+.adxstudio
+.vscode
+
+# Linter #
+################
+.eslintrc.json
+

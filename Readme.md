@@ -4,7 +4,7 @@ ImageCounter
 Demo
 -------
 
-[Demo of the Image Counter control](http://show.askia.com/WebProd/cgi-bin/askiaext.dll?Action=StartSurvey&SurveyName=ADC2_Image_Counter)
+[Demo of the Image Counter control](http://demo.askia.com/WebProd/cgi-bin/askiaext.dll?Action=StartSurvey&SurveyName=ADC2_Image_Counter)
 
 Tested in
 -----------
