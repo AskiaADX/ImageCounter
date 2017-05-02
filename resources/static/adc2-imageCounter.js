@@ -158,8 +158,10 @@
         counter.innerHTML = (value != 0) ? value.toString() : "";
         input.onchange();
         manageExclusives(this);
-        if (window.askia) {
-        	askia.triggerAnswer();
+        if (window.askia 
+            && window.arrLiveRoutingShortcut 
+            && window.arrLiveRoutingShortcut.length > 0) {
+            askia.triggerAnswer();
         }
     }
 
@@ -172,9 +174,11 @@
             input.value = (value != 0) ? value.toString() : "";
             counter.innerHTML = (value != 0) ? value.toString() : "";
             input.onchange();
-            if (window.askia) {
-        		askia.triggerAnswer();
-        	}
+            if (window.askia 
+                && window.arrLiveRoutingShortcut 
+                && window.arrLiveRoutingShortcut.length > 0) {
+                askia.triggerAnswer();
+            }
         }
     }
 
