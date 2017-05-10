@@ -25,6 +25,7 @@ gruntfile.js
 ################
 .idea
 .adxstudio
+.adxstudio/workspace.json
 .vscode
 
 # Linter #
