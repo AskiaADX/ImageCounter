@@ -7,7 +7,7 @@
   <info>
     <name>ImageCounter</name>
     <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <date>2015-07-03</date>
     <description><![CDATA[Show pictures with prices.
                 Increase/decrease the number of units and show the total spent/remaining.
@@ -81,11 +81,9 @@
                 ]]></description>
         <value><![CDATA[100%]]></value>
       </property>
-      <property xsi:type="standardProperty" id="controlAlign" name="Control Alignment" type="string" mode="static">
-        <description><![CDATA[
-                    The alignment of the control
-                ]]></description>
-        <value><![CDATA[left]]></value>
+      <property xsi:type="standardProperty" id="controlAlign" name="Control Alignment" type="string" mode="static" require="false" visible="true">
+        <description><![CDATA[The alignment of the control]]></description>
+        <value><![CDATA[center]]></value>
         <options>
           <option value="left" text="Left" />
           <option value="center" text="Center" />
