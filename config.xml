@@ -7,7 +7,7 @@
   <info>
     <name>ImageCounter</name>
     <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <date>2015-07-03</date>
     <description><![CDATA[Show pictures with prices.
                 Increase/decrease the number of units and show the total spent/remaining.
@@ -32,7 +32,7 @@
       <description><![CDATA[
                 Fallback when the browser doesn't support Javascript
             ]]></description>
-      <condition><![CDATA[Not(Browser.Support("javascript")) and (Interview.Scenario <> "accessible")]]></condition>
+      <condition><![CDATA[Not(Browser.Support("javascript"))]]></condition>
       <content fileName="styles.css" type="css" mode="static" position="head" />
       <content fileName="default.css" type="css" mode="dynamic" position="head" />
       <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
@@ -46,7 +46,7 @@
       <description><![CDATA[
                 Output when the browser support Javascript
             ]]></description>
-      <condition><![CDATA[Browser.Support("javascript") and (Interview.Scenario <> "accessible")]]></condition>
+      <condition><![CDATA[Browser.Support("javascript")]]></condition>
       <content fileName="styles.css" type="css" mode="static" position="head" />
       <content fileName="default.css" type="css" mode="dynamic" position="head" />
       <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
@@ -57,14 +57,6 @@
       <content fileName="DS-Digital-Bold.ttf.svg" type="binary" mode="static" position="none" />
       <content fileName="DS-Digital-Bold.ttf.woff" type="binary" mode="static" position="none" />
       <content fileName="magnifyingGlass.png" type="image" mode="static" position="none" />
-    </output>
-    <output id="accessible">
-      <description><![CDATA[Fallback for web accessibility]]></description>
-      <condition><![CDATA[Interview.Scenario = "accessible"]]></condition>
-      <content fileName="fallback_accessibility.html" type="html" mode="dynamic" position="placeholder" />
-      <content fileName="fallback_accessibility.css" type="css" mode="dynamic" position="head" />
-      <content fileName="fallback_accessibility.js" type="javascript" mode="static" position="foot" />
-      <content fileName="styles.css" type="css" mode="static" position="head" />
     </output>
   </outputs>
   <properties>
