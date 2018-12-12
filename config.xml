@@ -7,7 +7,7 @@
   <info>
     <name>ImageCounter</name>
     <guid>5a524168-9a5b-469d-a957-ecc98de6b374</guid>
-    <version>2.0.2</version>
+    <version>3.0.0</version>
     <date>2015-07-03</date>
     <description><![CDATA[Show pictures with prices.
                 Increase/decrease the number of units and show the total spent/remaining.
@@ -22,7 +22,7 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" />
+      <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" RequireLoopDepth="true" />
       <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
