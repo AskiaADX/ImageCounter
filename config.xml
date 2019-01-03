@@ -22,13 +22,13 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" RequireLoopDepth="1" />
+      <constraint on="questions" numeric="true" requireParentLoop="true" chapter="false" date="false" multiple="false" open="false" single="false" requireLoopDepth="1" />
       <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>
   <outputs defaultOutput="fallback">
-    <output id="fallback" ManageLoopDepth="1">
+    <output id="fallback" manageLoopDepth="1">
       <description><![CDATA[
                 Fallback when the browser doesn't support Javascript
             ]]></description>
@@ -42,7 +42,7 @@
       <content fileName="DS-Digital-Bold.ttf.woff" type="binary" mode="static" position="none" />
       <content fileName="magnifyingGlass.png" type="image" mode="static" position="none" />
     </output>
-    <output id="standard" ManageLoopDepth="1">
+    <output id="standard" manageLoopDepth="1">
       <description><![CDATA[
                 Output when the browser support Javascript
             ]]></description>
