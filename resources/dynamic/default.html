@@ -131,11 +131,11 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
             <div class="Count">
                 {% If (minusplusPosition = "minusplus") Then %}
                 <input class="Minus" data-id="{%= inputName%}" type="button" value="-" />
-                <input type="number" id="{%= inputName%}" autocomplete="nope" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
+                <input type="number" id="{%= inputName%}" autocomplete="off" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
                 <input class="Plus" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" type="button" value="+" />
                 {% Else %}
                 <input class="Plus" data-id="{%= inputName%}" data-adcid="adc_{%= CurrentADC.InstanceId %}" type="button" value="+" />
-                <input type="number" id="{%= inputName%}" autocomplete="nope" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
+                <input type="number" id="{%= inputName%}" autocomplete="off" data-adcid="adc_{%= CurrentADC.InstanceId %}" name="{%= inputName%}" value="{%= inputValue %}" min="0" {% If (maxValue <> DK) Then %} max="{%= maxValue %}" {% EndIf %} step="1" />
                 <input class="Minus" data-id="{%= inputName%}" type="button" value="-" />
                 {% EndIf %}
             </div>
