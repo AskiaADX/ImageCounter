@@ -45,6 +45,7 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
 
 %}
 <div class="adc-imageCounter_controlContainer">
+  
     <div id="adc_{%= CurrentADC.InstanceId %}_total">
         <div class="totalLabel">{%:= totalCaption %}</div>
         <div class="total">
@@ -81,7 +82,10 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
             EndIf
 
             productDescription = caption.Split("|")
-            price = productDescription[pricePosition.ToNumber()]
+
+            If (productDescription[pricePosition.ToNumber()].IsNumber() = True) Then
+              price = productDescription[pricePosition.ToNumber()]
+            EndIf
 
             If (inputValue >= 1) Then
                 clsImg = "stateOn"
@@ -89,7 +93,6 @@ Dim numberDigitsPrice = CurrentADC.PropValue("numberDigitsPrice")
                 clsImg = "stateOff"
             EndIf
         %}
-
         <div class="responseItem" unselectable="on" onselectstart="return false;" data-price='{%= price.Trim().Replace(",",".") %}'>
             <label data-id="{%= inputName %}" data-adcid="adc_{%= CurrentADC.InstanceId %}">
                 <div class="imgWrapper">
